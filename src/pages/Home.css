@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
+.home-page .main-banner-holder {
+  @apply bg-white p-5 h-svh min-h-[500px] flex relative;
+}
+.home-page .main-banner-holder .planet-track-holder {
+  @apply w-full max-w-[1500px] absolute;
+}
+.home-page .main-banner-holder .planet-track-holder .planet-track {
+  @apply w-48 h-48  rounded-full border-2 border-dashed border-slate-500 relative -top-20 -left-20;
+}
+.home-page .main-banner-holder .planet-track-holder .planet-track .planet {
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbit 10s linear infinite;
+  transform-origin: 22px 22px;
+}
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-88px);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-88px);
+  }
+
+  75% {
+    transform: translate(-50%, -50%) rotate(270deg) translateY(-88px);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(1turn) translateY(-88px);
+  }
+}
+.home-page .main-banner-holder .main-banner {
+  @apply max-w-[1500px] max-h-[700px] h-full bg-[#c1d3e7] bg-opacity-50 backdrop-blur-md p-5 rounded-xl flex flex-col justify-between relative *:z-20 overflow-hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+.home-page .main-banner-holder .spaceship{
+  @apply w-20 sm:w-28 md:w-36 absolute right-44 top-1 duration-300;
+  animation: spaceship 5s ease-in-out infinite;
+  transform-origin: 50% 200%;
+}
+@keyframes spaceship {
+    0% {
+      transform: rotate(0deg) translateX(0) translateY(0);
+    }
+  
+    25% {
+      transform: rotate(-10deg) translateX(10px) translateY(20px);
+    }
+    75% {
+      transform: rotate(10deg) translateX(-10px) translateY(20px);
+    }
+  
+    100% {
+      transform: rotate(0deg) translateX(0) translateY(0);
+    }
+  }
+.home-page .main-banner-holder .main-banner .sign-in-btn {
+  @apply bg-white self-end flex items-center gap-2 p-2 pr-3 rounded-full text-xl shadow-md;
+}
+.home-page .main-banner-holder .main-banner .sign-in-btn svg {
+  @apply w-6 h-6;
+}
+.home-page .main-banner-holder .main-banner .main-banner-content {
+  @apply -space-y-0 -mt-10;
+}
+.home-page .main-banner-holder .main-banner .main-banner-content p {
+  @apply text-xs sm:text-base md:text-4xl font-bold flex gap-3 bg-yellow-200 p-3 w-fit px-5 rounded-full duration-300 shadow-md;
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.home-page .main-banner-holder .main-banner .main-banner-content h1 {
+  @apply text-6xl sm:text-8xl md:text-9xl font-bold duration-300;
+  font-family: "Concert One", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.home-page .main-banner-holder .main-banner .bottom {
+  @apply flex justify-between items-end;
+}
+.home-page .main-banner-holder .main-banner .bottom .left .logo {
+  @apply w-16 h-16 bg-white rounded-full p-2 shadow-lg;
+}
+.home-page .main-banner-holder .main-banner .bottom button {
+  @apply bg-white p-1 px-3 rounded-full text-lg flex items-center gap-2 bg-opacity-80 backdrop-blur-md shadow-md;
+}
+.home-page .main-banner-holder .banner-img {
+  @apply absolute bottom-0 right-0 drop-shadow-xl w-9/12 lg:max-w-96 sm:max-w-80 max-w-64 z-10 duration-300;
+}
