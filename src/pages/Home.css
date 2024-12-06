@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 
 .home-page .main-banner-holder {
-  @apply bg-white p-5 h-svh min-h-[500px] flex relative;
+  @apply bg-white p-5 h-svh min-h-[500px] max-h-[700px] flex relative select-none;
 }
 .home-page .main-banner-holder .planet-track-holder {
   @apply w-full max-w-[1500px] absolute;
@@ -20,48 +20,15 @@
   animation: orbit 10s linear infinite;
   transform-origin: 22px 22px;
 }
-@keyframes orbit {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg) translateY(-88px);
-  }
-
-  25% {
-    transform: translate(-50%, -50%) rotate(90deg) translateY(-88px);
-  }
-
-  75% {
-    transform: translate(-50%, -50%) rotate(270deg) translateY(-88px);
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(1turn) translateY(-88px);
-  }
-}
 .home-page .main-banner-holder .main-banner {
-  @apply max-w-[1500px] max-h-[700px] h-full bg-[#c1d3e7] bg-opacity-50 backdrop-blur-md p-5 rounded-xl flex flex-col justify-between relative *:z-20 overflow-hidden;
+  @apply max-w-[1500px] h-full bg-[#c1d3e7] bg-opacity-50 backdrop-blur-md p-5 rounded-xl flex flex-col justify-between relative *:z-20 overflow-hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-.home-page .main-banner-holder .spaceship{
-  @apply w-20 sm:w-28 md:w-36 absolute right-44 top-1 duration-300;
+.home-page .main-banner-holder .spaceship {
+  @apply w-20 sm:w-28 md:w-36 absolute right-44 top-1 duration-300 drop-shadow-xl;
   animation: spaceship 5s ease-in-out infinite;
   transform-origin: 50% 200%;
 }
-@keyframes spaceship {
-    0% {
-      transform: rotate(0deg) translateX(0) translateY(0);
-    }
-  
-    25% {
-      transform: rotate(-10deg) translateX(10px) translateY(20px);
-    }
-    75% {
-      transform: rotate(10deg) translateX(-10px) translateY(20px);
-    }
-  
-    100% {
-      transform: rotate(0deg) translateX(0) translateY(0);
-    }
-  }
 .home-page .main-banner-holder .main-banner .sign-in-btn {
   @apply bg-white self-end flex items-center gap-2 p-2 pr-3 rounded-full text-xl shadow-md;
 }
@@ -94,4 +61,85 @@
 }
 .home-page .main-banner-holder .banner-img {
   @apply absolute bottom-0 right-0 drop-shadow-xl w-9/12 lg:max-w-96 sm:max-w-80 max-w-64 z-10 duration-300;
+}
+.home-page .def-section {
+  @apply relative space-y-2 flex flex-col items-start;
+}
+.home-page .def-section h2{
+  @apply rounded-md text-lg font-bold flex items-center gap-1 w-fit px-2;
+}
+.home-page .def-section p{
+  @apply text-justify;
+}
+.home-page .def-section .title img{
+  @apply w-6 h-6 bg-white rounded-full p-[1px];
+}
+.home-page .about-and-num-holder{
+    @apply bg-white
+}
+.home-page .about-and-num-holder .about-and-num-child{
+    @apply flex gap-5 p-3 relative;
+}
+.home-page .about-and-num-holder .about-and-num-child .rocket-img{
+    @apply absolute w-20 top-5 -left-10 drop-shadow-xl;
+    transform: rotate(-20deg);
+    animation: rocket 5s ease-in-out infinite;
+    transform-origin: 50% 200%;
+}
+.home-page .about-and-num-holder .about-and-num-child .about{
+    @apply w-full max-w-[600px] bg-slate-100 bg-opacity-40 backdrop-blur;
+}
+.home-page .about-and-num-holder .about-and-num-child .numbers{
+    @apply w-full;
+}
+
+
+@keyframes spaceship {
+  0% {
+    transform: rotate(0deg) translateX(0) translateY(0);
+  }
+
+  25% {
+    transform: rotate(-10deg) translateX(10px) translateY(20px);
+  }
+  75% {
+    transform: rotate(10deg) translateX(-10px) translateY(20px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateX(0) translateY(0);
+  }
+}
+@keyframes rocket {
+  0% {
+    transform: rotate(10deg) translateX(0) translateY(0);
+  }
+
+  25% {
+    transform: rotate(-10deg) translateX(10px) translateY(50px);
+  }
+  50% {
+    transform: rotate(10deg) translateX(-10px) translateY(100px);
+  }
+
+  100% {
+    transform: rotate(10deg) translateX(0) translateY(0);
+  }
+}
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-88px);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-88px);
+  }
+
+  75% {
+    transform: translate(-50%, -50%) rotate(270deg) translateY(-88px);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(1turn) translateY(-88px);
+  }
 }

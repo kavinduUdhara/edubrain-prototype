@@ -10,5 +10,9 @@
 }
 
 .def-child {
-  @apply w-full max-w-7xl;
+  @apply w-full max-w-[1500px];
+}
+
+.def-section{
+    @apply bg-white p-5 rounded-xl shadow-xl ;
 }
