@@ -8,7 +8,10 @@ import bannerImg from "../assets/img/main-banner.png";
 import planetImg from "../assets/img/objects/planet.png";
 import spaceshipImg from "../assets/img/objects/spaceship.png";
 import rockedImg from "../assets/img/objects/rocket.png";
+import astronautImg from "../assets/img/objects/astronaut.png";
 import { SiGoogleanalytics } from "react-icons/si";
+import { TbHeart, TbPrompt, TbUser } from "react-icons/tb";
+import { UserCountChart } from "@/components/chart";
 
 export default function Home() {
   return (
@@ -48,22 +51,76 @@ export default function Home() {
       </div>
       <div className="def-holder about-and-num-holder">
         <div className="def-child about-and-num-child">
-          <img src={rockedImg} className="rocket-img"/>
-          <div className="def-section about">
-            <h2 className="title"><img src={Logo}/> About EduBrain</h2>
-            <p>
-            EduBrain is a platform that empowers students to excel by delivering personalized, engaging, and interactive learning experiences driven by innovative technology.
-            </p>
-            <h2 className="self-end">{"EduBrain's Mission"}</h2>
-            <p>To empower every student to reach their full potential by providing personalized, engaging, and innovative learning experiences that make education accessible, effective, and enjoyable for all.</p>
-            <h2>{"EduBrain's Vision"}</h2>
-            <p>To revolutionize education by creating a world where every student thrives through personalized learning, fostering a lifelong passion for knowledge and success.</p>
-          </div>
+          <img src={rockedImg} className="rocket-img" alt="image of a rocket"/>
+          <img src={astronautImg} className="astronut-img" alt="image of a astronaut"/>
           <div className="def-section numbers">
             <div className="users-number-holder">
-              
+              <div className="user-count">
+                <div className="number">
+                  <h3>50</h3>
+                  <p>
+                    <TbUser /> users
+                  </p>
+                </div>
+                <UserCountChart />
+              </div>
+            </div>
+            <div className="more-count">
+              <div className="count">
+                <h3>50</h3>
+                <p>
+                  <TbPrompt /> Prompts
+                </p>
+              </div>
+              <div className="count">
+                <h3>70%</h3>
+                <p>
+                  <TbUser /> Active Users
+                </p>
+              </div>
+              <div className="count">
+                <h3>80%</h3>
+                <p>
+                  <TbHeart /> Loved suggestions
+                </p>
+              </div>
+            </div>
+            <div className="about-prototype">
+              <div className="title">
+                <ImLab /> Prototype
+              </div>
+              <p>
+                A prototype of EduBrain with limited functionalities is being
+                developed to test its core features and align with the
+                requirements of the competition, "AI for Impact". This will help gather feedback
+                and refine the solution to better serve students.
+              </p>
             </div>
           </div>
+          <div className="def-section about">
+            <h2 className="title">
+              <img src={Logo} /> About EduBrain
+            </h2>
+            <p>
+              EduBrain is a platform that empowers students to excel by
+              delivering personalized, engaging, and interactive learning
+              experiences driven by innovative technology.
+            </p>
+            <h2 className="self-end">{"EduBrain's Mission"}</h2>
+            <p>
+              To empower every student to reach their full potential by
+              providing personalized, engaging, and innovative learning
+              experiences that make education accessible, effective, and
+              enjoyable for all.
+            </p>
+            <h2>{"EduBrain's Vision"}</h2>
+            <p>
+              To revolutionize education by creating a world where every student
+              thrives through personalized learning, fostering a lifelong
+              passion for knowledge and success.
+            </p>
+          </div>
+          
         </div>
       </div>
     </div>

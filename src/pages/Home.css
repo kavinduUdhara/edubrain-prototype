@@ -42,13 +42,11 @@
   @apply text-xs sm:text-base md:text-4xl font-bold flex gap-3 bg-yellow-200 p-3 w-fit px-5 rounded-full duration-300 shadow-md;
   font-family: "Gloria Hallelujah", cursive;
   font-weight: 400;
-  font-style: normal;
 }
 .home-page .main-banner-holder .main-banner .main-banner-content h1 {
   @apply text-6xl sm:text-8xl md:text-9xl font-bold duration-300;
   font-family: "Concert One", sans-serif;
   font-weight: 600;
-  font-style: normal;
 }
 .home-page .main-banner-holder .main-banner .bottom {
   @apply flex justify-between items-end;
@@ -75,10 +73,10 @@
   @apply w-6 h-6 bg-white rounded-full p-[1px];
 }
 .home-page .about-and-num-holder{
-    @apply bg-white
+    @apply bg-white overflow-hidden;
 }
 .home-page .about-and-num-holder .about-and-num-child{
-    @apply flex gap-5 p-3 relative;
+    @apply flex lg:flex-row-reverse flex-col gap-8 p-3 pb-5 relative;
 }
 .home-page .about-and-num-holder .about-and-num-child .rocket-img{
     @apply absolute w-20 top-5 -left-10 drop-shadow-xl;
@@ -86,11 +84,57 @@
     animation: rocket 5s ease-in-out infinite;
     transform-origin: 50% 200%;
 }
+.home-page .about-and-num-holder .about-and-num-child .astronut-img{
+    @apply absolute w-36 bottom-24 -right-10 drop-shadow-xl;
+    transform: rotate(-20deg);
+    animation: rocket 5s ease-in-out infinite;
+    transform-origin: 50% 200%;
+}
 .home-page .about-and-num-holder .about-and-num-child .about{
-    @apply w-full max-w-[600px] bg-slate-100 bg-opacity-40 backdrop-blur;
+    @apply w-full lg:max-w-[700px] max-w-full bg-slate-100 bg-opacity-40 backdrop-blur px-7;
 }
 .home-page .about-and-num-holder .about-and-num-child .numbers{
-    @apply w-full;
+    /* @apply w-full bg-[#a7e0e6] bg-opacity-40; */
+    @apply w-full bg-slate-200 bg-opacity-40 backdrop-blur-sm flex flex-col
+    gap-3 items-center;
+}
+.home-page .about-and-num-holder .about-and-num-child .numbers .users-number-holder{
+    /* @apply w-full bg-[#a7e0e6] bg-opacity-40; */
+    @apply flex w-fit;
+}
+.home-page .about-and-num-holder .about-and-num-child .numbers .users-number-holder .user-count{
+    /* @apply w-full bg-[#a7e0e6] bg-opacity-40; */
+    @apply flex gap-7 items-center;
+}
+.home-page .about-and-num-holder .user-count .number{
+    @apply flex flex-col gap-1 items-center;
+}
+.home-page .about-and-num-holder .user-count h3{
+    @apply text-5xl font-bold;
+}
+.home-page .about-and-num-holder .user-count p{
+    @apply flex gap-1 items-center bg-slate-600 text-white px-2 rounded-full;
+}
+.home-page .about-and-num-holder .more-count{
+    @apply p-2 flex bg-white rounded-xl shadow-md w-full max-w-[500px];
+}
+.home-page .about-and-num-holder .more-count .count{
+  @apply flex flex-col flex-grow items-center border-l-2 border-dashed first:border-l-0;
+}
+.home-page .about-and-num-holder .more-count .count h3{
+  @apply text-xl font-bold;
+}
+.home-page .about-and-num-holder .more-count .count p{
+  @apply max-w-28 text-sm *:has-[svg]:inline-block bg-slate-50 text-center px-2 rounded-full;
+}
+.home-page .about-and-num-holder .about-prototype{
+  @apply bg-yellow-50 p-3 rounded-lg relative pt-7 max-w-[500px] shadow-md;
+  margin-top: 2rem !important;
+}
+.home-page .about-and-num-holder .about-prototype .title{
+  @apply text-base items-center flex bg-yellow-200 w-fit p-2 px-3 gap-3 rounded-full absolute -top-5 shadow-md;
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 400;
 }
 
 
