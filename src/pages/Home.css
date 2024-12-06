@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Shadows+Into+Light&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 
+.home-page {
+  @apply overflow-hidden;
+}
 .home-page .main-banner-holder {
   @apply bg-white p-5 h-svh min-h-[500px] max-h-[700px] flex relative select-none;
 }
@@ -60,6 +63,9 @@
 .home-page .main-banner-holder .banner-img {
   @apply absolute bottom-0 right-0 drop-shadow-xl w-9/12 lg:max-w-96 sm:max-w-80 max-w-64 z-10 duration-300;
 }
+
+
+
 .home-page .def-section {
   @apply relative space-y-2 flex flex-col items-start;
 }
@@ -72,8 +78,11 @@
 .home-page .def-section .title img{
   @apply w-6 h-6 bg-white rounded-full p-[1px];
 }
+
+
+
 .home-page .about-and-num-holder{
-    @apply bg-white overflow-hidden;
+    @apply bg-white;
 }
 .home-page .about-and-num-holder .about-and-num-child{
     @apply flex lg:flex-row-reverse flex-col gap-8 p-3 pb-5 relative;
@@ -85,7 +94,7 @@
     transform-origin: 50% 200%;
 }
 .home-page .about-and-num-holder .about-and-num-child .astronut-img{
-    @apply absolute w-36 bottom-24 -right-10 drop-shadow-xl;
+    @apply absolute w-36 bottom-32 -right-10 drop-shadow-xl;
     transform: rotate(-20deg);
     animation: rocket 5s ease-in-out infinite;
     transform-origin: 50% 200%;
@@ -116,16 +125,16 @@
     @apply flex gap-1 items-center bg-slate-600 text-white px-2 rounded-full;
 }
 .home-page .about-and-num-holder .more-count{
-    @apply p-2 flex bg-white rounded-xl shadow-md w-full max-w-[500px];
+    @apply p-2 flex sm:flex-row flex-col bg-white rounded-xl shadow-md w-full max-w-[500px] duration-300;
 }
 .home-page .about-and-num-holder .more-count .count{
-  @apply flex flex-col flex-grow items-center border-l-2 border-dashed first:border-l-0;
+  @apply flex sm:flex-col flex-row sm:justify-normal gap-5 sm:gap-0 flex-grow items-center sm:border-l-2 border-b-2 last:border-b-0 sm:border-b-0 justify-start border-dashed first:border-l-0 p-2 sm:p-0 duration-300;
 }
 .home-page .about-and-num-holder .more-count .count h3{
   @apply text-xl font-bold;
 }
 .home-page .about-and-num-holder .more-count .count p{
-  @apply max-w-28 text-sm *:has-[svg]:inline-block bg-slate-50 text-center px-2 rounded-full;
+  @apply sm:max-w-28 text-sm *:has-[svg]:inline-block bg-slate-50 text-center px-2 rounded-full;
 }
 .home-page .about-and-num-holder .about-prototype{
   @apply bg-yellow-50 p-3 rounded-lg relative pt-7 max-w-[500px] shadow-md;
@@ -138,6 +147,106 @@
 }
 
 
+
+.home-page .problem-statement-holder{
+  @apply relative w-[100%];
+}
+.home-page .problem-statement-holder .problem-statement{
+  @apply p-5 flex flex-col md:flex-row gap-7;
+}
+.home-page .problem-statement-holder .problem-statement > *{
+  @apply w-full p-5;
+}
+.home-page .problem-statement-holder .problem-statement .statement{
+  @apply bg-[#e0cee9] w-full bg-opacity-30 backdrop-blur-md flex items-center max-w-full md:max-w-xl;
+}
+.home-page .problem-statement-holder .problem-statement .statement img{
+  @apply rounded-xl shadow-md;
+}
+.home-page .problem-statement-holder .problem-statement .statement span{
+  @apply bg-zinc-700 text-white px-2 rounded-full;
+}
+.home-page .problem-statement-holder .problem-statement .solution{
+  @apply gap-3 p-7 flex items-center justify-center bg-[#c6e4e4] bg-opacity-30 backdrop-blur-md;
+}
+.home-page .problem-statement-holder .problem-statement .solution .solutions-list{
+  @apply flex flex-col gap-1 relative *:z-10;
+}
+.home-page .problem-statement-holder .problem-statement .solution .solutions-list .line{
+  @apply h-full absolute w-[1px] border-l-2 border-dashed border-slate-600 left-[12px] z-0;
+}
+.home-page .problem-statement-holder .problem-statement .solution .solutions-list .solution-item{
+  @apply flex gap-2;
+}
+.home-page .problem-statement-holder .problem-statement .solution .solutions-list .solution-item .no{
+  @apply min-w-7 h-7 p-1 flex items-center justify-center *:has-[svg]:w-5 *:has-[svg]:h-5 rounded-full fill-white text-white;
+}
+.home-page .problem-statement-holder .problem-statement .solution .solutions-list .solution-item .info h4{
+  @apply font-bold;
+}
+.home-page .problem-statement-holder .problem-statement .solution .solutions-list .solution-item .info p{
+  @apply text-sm;
+}
+.home-page .problem-statement-holder .problem-statement .solution .solutions-list .solution-item .info p span{
+  @apply bg-yellow-300 inline-flex items-center px-2 rounded-full ml-2 gap-1;
+  font-family: "Gloria Hallelujah", cursive;
+}
+  
+
+
+.home-page .sign-in-msg-holder{
+  @apply p-7
+}
+.home-page .sign-in-msg-holder .sign-in-msg{
+  @apply bg-[#c7e2e3] bg-opacity-30 backdrop-blur-md p-6 sm:rounded-full rounded-3xl flex flex-col lg:flex-row justify-center items-center gap-6
+}
+.home-page .sign-in-msg-holder .sign-in-msg .left{
+  @apply space-y-2 flex flex-col;
+}
+.home-page .sign-in-msg-holder .sign-in-msg h3{
+  @apply font-bold text-2xl text-center;
+}
+.home-page .sign-in-msg-holder .sign-in-msg p{
+  @apply  *:has-[svg]:inline-flex items-center inline-flex text-center self-center gap-1;
+  font-family: "Gloria Hallelujah", cursive;
+}
+.home-page .sign-in-msg-holder .sign-in-msg span{
+  @apply  *:has-[svg]:inline-flex items-center inline-flex gap-1 bg-yellow-300 px-2 rounded-full;
+  font-family: "Gloria Hallelujah", cursive;
+}
+.home-page .sign-in-msg-holder .sign-in-msg p span svg{
+  @apply  w-3;
+}
+.home-page .sign-in-msg-holder .sign-in-msg button{
+  @apply  bg-white flex gap-2 p-2 px-3 text-lg items-center rounded-full shadow-xl;
+}
+.home-page .planet-img-2 {
+  @apply absolute w-10;
+  animation: movingPlanet 30s ease-in-out infinite;
+  transform-origin: 50% 50%; /* Center point for rotation */
+}
+
+@keyframes movingPlanet {
+  0% {
+    transform: rotate(0deg) translateX(500px) translateY(200px);
+  }
+
+  25% {
+    transform: rotate(-15deg) translateX(-500px) translateY(10px);
+  }
+
+  50% {
+    transform: rotate(-10deg) translateX(10px) translateY(600px);
+  }
+
+  75% {
+    transform: rotate(10deg) translateX(700px) translateY(300px);
+  }
+
+  100% {
+    transform: rotate(-15deg) translateX(-500px) translateY(10px);
+  }
+}
 @keyframes spaceship {
   0% {
     transform: rotate(0deg) translateX(0) translateY(0);

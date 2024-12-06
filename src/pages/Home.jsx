@@ -9,9 +9,13 @@ import planetImg from "../assets/img/objects/planet.png";
 import spaceshipImg from "../assets/img/objects/spaceship.png";
 import rockedImg from "../assets/img/objects/rocket.png";
 import astronautImg from "../assets/img/objects/astronaut.png";
+import problemStatementImg from "../assets/img/p-statement.jpg";
+import { IoGameControllerOutline } from "react-icons/io5";
+import { MdOutlineChatBubbleOutline } from "react-icons/md";
 import { SiGoogleanalytics } from "react-icons/si";
 import { TbHeart, TbPrompt, TbUser } from "react-icons/tb";
 import { UserCountChart } from "@/components/chart";
+import { LucideCodeXml, LucideGamepad2, LucideNewspaper } from "lucide-react";
 
 export default function Home() {
   return (
@@ -51,8 +55,12 @@ export default function Home() {
       </div>
       <div className="def-holder about-and-num-holder">
         <div className="def-child about-and-num-child">
-          <img src={rockedImg} className="rocket-img" alt="image of a rocket"/>
-          <img src={astronautImg} className="astronut-img" alt="image of a astronaut"/>
+          <img src={rockedImg} className="rocket-img" alt="image of a rocket" />
+          <img
+            src={astronautImg}
+            className="astronut-img"
+            alt="image of a astronaut"
+          />
           <div className="def-section numbers">
             <div className="users-number-holder">
               <div className="user-count">
@@ -92,8 +100,9 @@ export default function Home() {
               <p>
                 A prototype of EduBrain with limited functionalities is being
                 developed to test its core features and align with the
-                requirements of the competition, "AI for Impact". This will help gather feedback
-                and refine the solution to better serve students.
+                requirements of the competition, "AI for Impact". This will help
+                gather feedback and refine the solution to better serve
+                students.
               </p>
             </div>
           </div>
@@ -120,7 +129,101 @@ export default function Home() {
               passion for knowledge and success.
             </p>
           </div>
-          
+        </div>
+      </div>
+      <div className="def-holder problem-statement-holder">
+        <img className="planet-img-2" src={planetImg} alt="planet"/>
+        <div className="def-child problem-statement">
+          <div className="def-section statement">
+            <div className="max-w-md flex flex-col gap-3">
+              <img
+                src={problemStatementImg}
+                alt="problem statement banner image"
+              />
+              <p>
+                Many students in Sri Lanka struggle to access personalized and
+                practical learning tools, making ICT education less effective
+                and engaging—AI can bridge this gap.
+              </p>
+              <p className="self-end bg-slate-600 px-2 rounded-full text-white">
+                Problem Statement
+              </p>
+            </div>
+          </div>
+          <div className="def-section solution">
+            <div className="max-w-lg w-full flex flex-col items-start gap-5">
+              <p className="bg-slate-600 px-2 rounded-full text-white">
+                Solution
+              </p>
+              <div className="solutions-list">
+                <div className="line"></div>
+                <div className="solution-item">
+                  <div className="no bg-[#407ee9]">
+                    <LucideNewspaper />
+                  </div>
+                  <div className="info">
+                    <h4>Past Paper Practice</h4>
+                    <p>
+                      Students can practice exam questions and receive
+                      AI-powered insights on areas needing improvement.
+                      <span>
+                        <ImLab /> Enabled
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div className="solution-item">
+                  <div className="no bg-[#e94432]">
+                    <LucideGamepad2 />
+                  </div>
+                  <div className="info">
+                    <h4>Interactive Content and Games</h4>
+                    <p>
+                      Aligned with the syllabus, these make learning enjoyable
+                      and boost student interest.
+                    </p>
+                  </div>
+                </div>
+                <div className="solution-item">
+                  <div className="no bg-[#fabd04]">
+                    <MdOutlineChatBubbleOutline />
+                  </div>
+                  <div className="info">
+                    <h4>AI-Enhanced Forum</h4>
+                    <p>
+                      A collaborative space for students to ask questions, share
+                      ideas, and receive AI-generated responses, with peer
+                      discussions encouraged.
+                    </p>
+                  </div>
+                </div>
+                <div className="solution-item">
+                  <div className="no bg-[#33a453]">
+                    <LucideCodeXml />
+                  </div>
+                  <div className="info">
+                    <h4>Hands-On Experience</h4>
+                    <p>
+                      Provides practical learning in Python, web development,
+                      and more to bridge the gap between theory and real-world
+                      application.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="def-holder sign-in-msg-holder">
+        <div className="def-child sign-in-msg">
+          <div className="left">
+            <h3>If you are an <span>AL ICT</span> student why wait?</h3>
+            <p>Click on sign-in to enjoy the <span><ImLab/> prototype</span></p>
+          </div>
+          <div className="right">
+            <button><FcGoogle/> Sign in with Google</button>
+          </div>
         </div>
       </div>
     </div>
