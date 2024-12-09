@@ -6,7 +6,8 @@ import { RiGeminiFill } from "react-icons/ri";
 import { CiCircleInfo } from "react-icons/ci";
 import { GiPartyPopper } from "react-icons/gi";
 import { RiExternalLinkFill } from "react-icons/ri";
-import { Settings } from "lucide-react";
+import { LucideNewspaper, Settings } from "lucide-react";
+import { MdOutlineChatBubbleOutline } from "react-icons/md";
 export default function Dashboard() {
   return (
     <div className="page-holder">
@@ -65,12 +66,12 @@ export default function Dashboard() {
               </h1>
               <div className="f-list">
                 <div className="f-item">
-                  <h1>Past Paper Practice</h1>
+                  <h1><LucideNewspaper />Past Paper Practice</h1>
                   <p>Students can practice exam questions and receive AI-powered insights on areas needing improvement.</p>
                   <button>Practice Past Papers <RiExternalLinkFill /></button>
                 </div>
                 <div className="f-item">
-                  <h1>AI-Enhanced Forum</h1>
+                  <h1><MdOutlineChatBubbleOutline /> AI-Enhanced Forum</h1>
                   <p>A collaborative space for students to ask questions, share ideas, and receive AI-generated responses, with peer discussions encouraged.</p>
                   <button>Ask a questions <RiExternalLinkFill /></button>
                 </div>
