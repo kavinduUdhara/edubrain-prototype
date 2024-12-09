@@ -1,6 +1,6 @@
 import "./Dashboard.css";
-import profileImg from "../assets/profile.png";
-import flotingObjectsImg from "../assets/img/objects/floating-objects.png";
+import profileImg from "../../assets/profile.png";
+import flotingObjectsImg from "../../assets/img/objects/floating-objects.png";
 import { ImLab } from "react-icons/im";
 import { RiGeminiFill } from "react-icons/ri";
 import { CiCircleInfo } from "react-icons/ci";

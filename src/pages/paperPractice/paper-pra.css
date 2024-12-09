@@ -1,0 +1,595 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+
+body {
+  @apply max-h-svh;
+}
+
+.not-found {
+  @apply p-5 my-10 mt-16 flex flex-col items-center justify-center h-full;
+}
+
+.navigation {
+  @apply fixed top-5 flex items-center bg-blue-50 z-50 p-1 px-2 rounded-md self-start shadow-md select-none;
+}
+
+.navigation a {
+  @apply px-1 rounded-md hover:bg-white bg-opacity-30 duration-300;
+}
+
+.navigation a:first-child {
+  @apply px-0 w-6 h-5 p-1 flex items-center justify-center;
+}
+
+.not-found .img-spaceship {
+  @apply max-w-64 w-full drop-shadow-xl text-center select-none;
+}
+
+.not-found h1 {
+  @apply text-2xl font-bold;
+}
+
+.not-found p {
+  @apply w-full text-center;
+}
+
+.not-found button {
+  @apply flex bg-blue-50 hover:bg-slate-100 p-1 px-2 mt-3 items-center gap-1 rounded-md duration-300 select-none;
+}
+
+.loading-holder {
+  @apply p-5 my-10 mt-16 flex flex-col items-center justify-center h-full;
+}
+
+.loading-holder .loading {
+  @apply flex flex-col items-center;
+}
+.sub-progress{
+  flex-direction: column !important;
+}
+.submit-progress-holder{
+  @apply p-5 flex flex-col py-5 items-center justify-end w-full select-none;
+}
+.submit-progress-child{
+  @apply max-w-xl flex flex-col items-center;
+}
+.submit-progress-child h1{
+  @apply text-2xl font-bold;
+}
+.submit-progress-child .loading-progress{
+  @apply mt-3 flex items-center gap-2 bg-blue-50 p-1 px-2 rounded-full select-none cursor-wait;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.q-pan-holder .download-q {
+  @apply flex flex-col items-center mt-10;
+}
+
+.q-pan-holder .download-q .img-spaceship {
+  @apply max-w-64 w-full drop-shadow-xl;
+}
+
+.q-pan-holder .download-q h1 {
+  @apply text-xl font-bold;
+}
+
+.q-pan-holder .download-q .loading-progress {
+  @apply mt-3 flex items-center gap-2 bg-blue-50 p-1 px-2 rounded-full;
+}
+
+.pp-pra-holder {
+  @apply h-svh;
+}
+
+.pp-pra {
+  @apply h-full flex flex-col;
+}
+
+.pp-pra .dashboard {
+  @apply flex justify-between items-center p-1 px-5 duration-300;
+}
+
+.pp-pra .left {
+  @apply flex gap-1 items-center sm:gap-1 lg:gap-8 duration-200 relative;
+}
+
+.pp-pra .left .back-btn {
+  @apply bg-slate-100 bg-opacity-50 z-20 backdrop-blur-sm sm:w-0 sm:opacity-0 transition-all sm:hidden visible w-8 h-8 rounded-lg flex items-center justify-center duration-300;
+}
+
+.pp-pra .left .back-btn svg {
+  @apply w-4 h-4 duration-300;
+}
+
+.pp-pra .left .back-btn:hover {
+  @apply bg-slate-200;
+}
+
+.pp-pra .left .back-btn:hover svg {
+  transform: translateX(-2px);
+}
+
+.pp-pra .left .logo {
+  @apply z-10 bg-slate-50 inline-flex items-center gap-1 py-1 sm:px-2 rounded-lg cursor-pointer select-none w-0 px-0 sm:w-fit overflow-hidden duration-300;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; */
+}
+
+.pp-pra .left .logo:hover {
+  @apply bg-slate-100;
+}
+
+.pp-pra .left .logo:hover .def-logo-img {
+  transform: translateX(-2px);
+}
+
+.pp-pra .left .def-logo-txt {
+  font-family: "Lilita One", sans-serif;
+}
+
+.pp-pra .left .pp-title {
+  @apply z-10 bg-white bg-opacity-50 backdrop-blur-sm px-1 rounded-lg;
+}
+
+.pp-pra .left .pp-title p {
+  @apply text-xs bg-slate-100 w-fit px-1 rounded-xl;
+}
+
+.pp-pra .left .obj-img {
+  @apply absolute select-none -top-2 left-11 sm:left-48 z-0 max-w-72 duration-300;
+}
+
+.pp-pra .right {
+  @apply z-20 flex items-center gap-2 select-none relative;
+}
+
+.pp-pra .right .count-down {
+  @apply flex gap-1 items-center justify-center select-none px-1 rounded-lg bg-opacity-80 backdrop-blur-md w-36 duration-300;
+}
+
+.pp-pra .right .count-down p {
+  @apply text-xs;
+}
+
+.pp-pra .right .count-down .time {
+  @apply text-2xl -mt-2;
+}
+
+.pp-pra .right .count-down svg {
+  @apply w-6 h-6;
+}
+
+.pp-pra .right .submit-btn {
+  @apply px-2 py-1 bg-blue-100 rounded-lg;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+.pp-pra .right .profile-holder {
+  @apply w-8 h-8 flex relative z-30;
+}
+.pp-pra .right .profile-holder .mood-info{
+  @apply absolute w-4 h-4 p-1 flex items-center justify-center -bottom-1 -left-1 bg-white shadow-md rounded-full z-40 duration-300;
+}
+.pp-pra .right .profile-holder .mood-info svg{
+  @apply w-3 h-3;
+}
+.pp-pra .right .profile {
+  @apply w-8 h-8 ml-6 rounded-full overflow-hidden content-center select-none z-30;
+}
+
+.pp-pra .right .profile img {
+  @apply w-full h-full;
+}
+.pp-pra .right .profile:hover + .info-holder,
+.pp-pra .right .info-holder:hover{
+  @apply max-w-52 pr-10 pl-2;
+}
+.pp-pra .right .info-holder {
+  @apply p-1 pl-1 max-w-8 h-8 inline-flex items-center gap-1 text-sm rounded-full overflow-hidden absolute top-1 right-0 bg-white shadow-md bg-opacity-70 backdrop-blur-md z-10 duration-300;
+  padding-right: 3.25rem;
+}
+.pp-pra .right .info-holder .mood{
+  @apply inline-flex items-center text-base gap-1 w-fit text-nowrap;
+}
+.pp-pra .right .info-holder p{
+  @apply cursor-pointer;
+}
+.pp-pra .right .info-holder .mood svg{
+  @apply z-50 bg-white rounded-full w-5 h-5 shadow-sm;
+  padding: 3px;
+}
+.pp-pra .right .info-holder button{
+  @apply text-base bg-white rounded-full;
+}
+
+.pp-pra .det-holder {
+  @apply h-full min-h-72 flex-col flex p-0 sm:p-2 sm:pt-0 duration-300;
+  max-height: 700px;
+}
+
+.pp-pra .det-child {
+  @apply h-full z-20 lg:gap-0 gap-2 flex lg:flex-row flex-col-reverse bg-white bg-opacity-80 backdrop-blur-md rounded-lg p-1 sm:p-2 duration-300;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
+.pp-pra .overview-pan {
+  @apply bg-white bg-opacity-30 max-w-full lg:max-w-80 lg:w-full min-h-16 lg:h-full flex flex-row lg:flex-col rounded-md overflow-hidden duration-300;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.pp-pra .overview-pan .overview {
+  @apply p-2 lg:p-3 lg:pb-1 inline-flex items-center gap-0 lg:gap-4 bg-white w-fit lg:w-full;
+}
+
+.pp-pra .overview-pan .overview .progress-bar {
+  @apply relative select-none;
+}
+
+.pp-pra .overview-pan .overview .progress-txt {
+  @apply text-xl font-bold absolute top-2/4 left-2/4;
+  transform: translate(-50%, -50%);
+}
+
+.pp-pra .overview-pan .overview .progress-txt span {
+  @apply text-xs font-normal;
+}
+
+.circular-progress {
+  --size: 60px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 5px;
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * 3.14159 * 2);
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+}
+
+.circular-progress circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+  stroke-width: var(--stroke-width);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.circular-progress circle.bg {
+  stroke: #f3f3f3;
+}
+
+.circular-progress circle.fg {
+  transform: rotate(-90deg);
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+  transition: stroke-dasharray 0.3s linear 0s;
+  stroke: #87a6be;
+}
+
+:root {
+  --progress: 0;
+}
+
+@keyframes progress-animation {
+  from {
+    --progress: 0;
+  }
+  to {
+    --progress: 100;
+  }
+}
+
+.pp-pra .overview-pan .stu-det {
+  @apply hidden w-0 lg:w-fit lg:visible lg:flex items-center gap-1 text-sm;
+}
+
+.pp-pra .overview-pan .stu-det .sm-q {
+  @apply w-3 h-3 bg-slate-200 rounded-full;
+}
+
+.pp-pra .overview-pan .stu-det .done {
+  background-color: #87a6be;
+}
+
+.pp-pra .overview-pan .stu-det .skipped {
+  border: #87a6be 1px dashed;
+}
+
+.pp-pra .q-nums-holder {
+  @apply h-full flex overflow-hidden bg-white p-2 py-1 lg:py-2;
+}
+
+.pp-pra .q-nums-wrap {
+  @apply h-full overflow-auto lg:overflow-y-auto overflow-y-hidden rounded-sm;
+}
+
+.pp-pra .q-nums {
+  @apply w-fit p-3 py-3 lg:py-1 flex flex-nowrap lg:flex-wrap gap-2 lg:gap-y-2 select-none;
+  align-content: start;
+  column-gap: 11px;
+}
+
+@media screen and (max-width: 1200px) {
+  .q-nums {
+    column-gap: 5px;
+  }
+}
+
+.pp-pra .q-nums .quection {
+  @apply w-8 h-8 lg:w-11 lg:h-11 bg-white rounded-lg lg:rounded-full flex items-center justify-center cursor-pointer duration-300;
+}
+
+.pp-pra .q-nums .done {
+  @apply text-white;
+  background-color: #87a6be;
+}
+
+.pp-pra .q-nums .skipped {
+  border: #87a6be dashed 2px;
+}
+
+.pp-pra .q-nums .in-progress {
+  border: #87a6be dashed 2px;
+  background: #c5e4fb;
+}
+
+.pp-pra .q-pan-holder {
+  @apply relative flex h-full w-full flex-col items-center overflow-auto scroll-smooth;
+}
+
+.pp-pra .question-pan {
+  @apply pt-3 p-1 mb-5 lg:pl-5 pr-3 max-w-2xl flex flex-col gap-2;
+  width: 100%;
+}
+
+.pp-pra .question-pan .q-num-des {
+  @apply flex gap-1 items-center;
+}
+
+.pp-pra .question-pan .q-num-des .q-num {
+  @apply bg-blue-100 text-xl font-bold w-10 h-10 rounded-full flex items-center justify-center;
+}
+
+.pp-pra .question-pan .q-num-des .q-des {
+  @apply text-sm text-gray-800;
+}
+
+.q-txt {
+  @apply flex flex-col gap-3 select-none mt-3;
+}
+
+.q-txt > * {
+  @apply sm:px-4 px-2;
+  scroll-snap-type: none;
+}
+
+.q-txt h1 {
+  @apply px-2;
+}
+
+.q-txt .q-more {
+  @apply px-2 flex flex-col gap-3;
+}
+
+img {
+  @apply rounded-md max-w-lg;
+}
+
+.q-txt code {
+  @apply overflow-x-auto;
+}
+
+/* code {
+    counter-reset: list-counter;
+    list-style-type: none;
+} */
+
+/* code p {
+    @apply flex;
+    counter-increment: list-counter;
+}
+
+code p::before {
+    content: counter(list-counter, decimal) "| ";
+    font-weight: bold;
+} */
+.upper-alpha {
+  counter-reset: list-counter;
+  list-style-type: none;
+  @apply pl-2;
+}
+
+.upper-alpha li {
+  counter-increment: list-counter;
+}
+
+.upper-alpha li::before {
+  content: counter(list-counter, upper-alpha) " - ";
+  font-weight: bold;
+}
+
+.upper-roman {
+  counter-reset: list-counter;
+  list-style-type: none;
+  @apply pl-5;
+}
+
+.upper-roman li {
+  counter-increment: list-counter;
+}
+
+.upper-roman li::before {
+  content: counter(list-counter, upper-roman) " - ";
+  font-weight: bold;
+}
+
+li img {
+  @apply max-w-lg w-full;
+}
+
+.table-holder {
+  @apply w-full overflow-x-auto rounded-lg;
+}
+
+table,
+th,
+td {
+  @apply border-black border-collapse w-fit;
+  border: 1px solid black;
+}
+
+table {
+  @apply rounded-md sm:mx-4 mx-2 max-w-lg overflow-x-auto;
+  outline: 1px solid black;
+  outline-offset: -1px;
+  overflow: hidden;
+}
+
+th,
+td {
+  @apply px-2;
+}
+
+.pp-pra .question-pan .q-opts {
+  @apply px-2 w-full flex flex-col gap-2 mt-5 select-none;
+}
+
+.pp-pra .question-pan .q-opts .q-opt {
+  @apply relative flex gap-2 items-start w-full bg-slate-100 p-2 rounded-md;
+}
+
+.pp-pra .question-pan .q-opts .q-opt input {
+  @apply min-h-5 min-w-5 border-[#4F46E5] text-[#4F46E5] focus:ring-[#4F46E5];
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.q-opt:hover input ~ .ans-num {
+  background-color: #515151;
+}
+
+.q-opt input:checked ~ .ans-num {
+  background-color: #2196F3;
+}
+
+/* Create a custom radio button */
+.ans-num {
+  background-color: white;
+}
+
+/* On mouse-over, add a grey background color */
+.q-opt:hover input ~ .ans-num {
+  background-color: #f5f5f5e0;
+}
+
+/* When the radio button is checked, add a blue background */
+.q-opt input:checked ~ .ans-num {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.ans-num:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.q-opt input:checked ~ .ans-num:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.q-opt .ans-num:after {
+  position: absolute;
+  min-width: 21px;
+  min-height: 21px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.966);
+  backdrop-filter: blur(5px);
+}
+
+.pp-pra .question-pan .q-opts .q-opt .ans-num {
+  @apply absolute text-gray-600 max-w-6 max-h-6 w-full h-full p-0 rounded-full flex items-center justify-center;
+  left: 7px;
+  top: 9px;
+}
+.pp-pra .question-pan .q-opts .q-opt .ans-num p {
+  @apply z-30;
+}
+
+.ans-lab {
+  @apply w-full pl-7 flex overflow-hidden;
+}
+
+.ans-lab img {
+  @apply max-w-lg rounded-lg w-full;
+}
+
+.ans-lab > div {
+  @apply w-full overflow-hidden;
+}
+
+.ans-lab code {
+  @apply bg-white rounded-lg w-full overflow-x-auto flex p-1 flex-wrap;
+}
+
+.ans-lab table,
+th,
+td {
+  @apply border-black border-collapse w-fit;
+  border: 1px solid black;
+}
+
+.ans-lab table {
+  @apply rounded-md max-w-lg overflow-x-auto bg-white;
+  outline: 1px solid black;
+  outline-offset: -1px;
+  overflow: hidden;
+}
+
+.pp-pra .question-pan .tags {
+  @apply text-xs flex gap-2 flex-wrap px-0 lg:px-7 my-3;
+}
+
+.pp-pra .question-pan .tags .tag {
+  @apply bg-slate-100 text-gray-700 p-1 rounded-md select-none;
+}
+
+.pp-pra .question-pan .ac-buttons {
+  @apply flex gap-2 justify-center lg:fixed bottom-20 lg:bottom-5 right-8 select-none duration-300;
+}
+
+.pp-pra .question-pan .ac-buttons button {
+  @apply px-5 py-1 rounded-md;
+}
+
+.pp-pra .question-pan .ac-buttons .prev-btn {
+  border: 2px solid #87a6be;
+  @apply bg-white;
+}
+
+.pp-pra .question-pan .ac-buttons .next-btn {
+  background: #87a6be;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .pp-title {
+    display: none;
+  }
+
+  .pp-pra .left .obj-img {
+    @apply -left-5;
+  }
+
+  .pp-pra .dashboard {
+    @apply px-2;
+  }
+}
