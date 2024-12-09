@@ -226,6 +226,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="def-holder text-sm pb-3 text-gray-700 underline">
+       <a href="https://www.linkedin.com/in/kavindu-udhara/" target="_blank" rel="noopener noreferrer">Who Developed this? </a> 
+      </div>
     </div>
   );
 }

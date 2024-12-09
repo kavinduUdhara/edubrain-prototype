@@ -158,7 +158,7 @@
   @apply w-full p-5;
 }
 .home-page .problem-statement-holder .problem-statement .statement{
-  @apply bg-[#e0cee9] w-full bg-opacity-30 backdrop-blur-md flex items-center max-w-full md:max-w-xl;
+  @apply bg-[#d9cedf] w-full bg-opacity-30 backdrop-blur-md flex items-center max-w-full md:max-w-xl;
 }
 .home-page .problem-statement-holder .problem-statement .statement img{
   @apply rounded-xl shadow-md;
@@ -167,7 +167,7 @@
   @apply bg-zinc-700 text-white px-2 rounded-full;
 }
 .home-page .problem-statement-holder .problem-statement .solution{
-  @apply gap-3 p-7 flex items-center justify-center bg-[#c6e4e4] bg-opacity-30 backdrop-blur-md;
+  @apply gap-3 p-7 flex items-center justify-center bg-[#d0dede] bg-opacity-30 backdrop-blur-md;
 }
 .home-page .problem-statement-holder .problem-statement .solution .solutions-list{
   @apply flex flex-col gap-1 relative *:z-10;
@@ -198,7 +198,7 @@
   @apply p-7
 }
 .home-page .sign-in-msg-holder .sign-in-msg{
-  @apply bg-[#c7e2e3] bg-opacity-30 backdrop-blur-md p-6 sm:rounded-full rounded-3xl flex flex-col lg:flex-row justify-center items-center gap-6
+  @apply bg-[#d4e4e4] bg-opacity-30 backdrop-blur-md p-6 sm:rounded-full rounded-3xl flex flex-col lg:flex-row justify-center items-center gap-6
 }
 .home-page .sign-in-msg-holder .sign-in-msg .left{
   @apply space-y-2 flex flex-col;

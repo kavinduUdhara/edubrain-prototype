@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css'
 import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard.old";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       {/* Define Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   )

@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
+.page-holder{
+    @apply h-svh
+}
+
+.dashboard-page{
+    @apply flex flex-col h-full;
+}
+
+.top-holder .top-menu{
+    @apply  p-2 flex justify-between px-4 items-center max-w-5xl w-full relative;
+}
+.top-holder .top-menu .left{
+    @apply flex items-center gap-2
+}
+.top-holder .top-menu .profile-holder{
+    @apply w-10 min-w-10 h-10 rounded-full overflow-hidden p-[2px] bg-white *:rounded-full shadow-md;
+}
+.top-holder .top-menu .welcome-txt{
+    @apply -space-y-1 flex flex-col;
+}
+.top-holder .top-menu .left h1{
+    @apply text-lg font-bold
+}
+.top-holder .top-menu .left p{
+    @apply inline-flex *:inline-flex items-center gap-2 *:items-center text-sm
+}
+.top-holder .top-menu .left span{
+    @apply bg-yellow-300 text-xs shadow-md flex gap-1 px-2 rounded-full;
+    font-family: "Gloria Hallelujah", cursive;
+}
+.top-holder .top-menu .left svg{
+    @apply w-3
+}
+.top-holder .flo-obj-img{
+    @apply w-80 absolute right-2 top-0;
+}
+.bottom-holder{
+    @apply h-full w-full flex pb-2 px-2 min-h-20 flex-col duration-300 self-center;
+}
+.bottom-holder .content{
+    @apply max-w-5xl bg-white bg-opacity-50 backdrop-blur-md flex-grow w-full h-full overflow-auto rounded-xl flex-col flex self-center p-2;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.ai-s-child{
+    @apply p-3 px-4 flex flex-col w-full self-center bg-slate-50 mt-1 rounded-md;
+}
+.ai-s-child .title{
+    @apply inline-flex items-center gap-2 text-lg
+}
+.ai-s-child .no-sug{
+    @apply w-fit self-center gap-2 text-gray-700 justify-center *:has-[svg]:inline-block *:has-[svg]:mr-1 p-2 rounded-xl my-3
+}
