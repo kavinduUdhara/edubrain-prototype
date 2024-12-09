@@ -63,3 +63,33 @@ export function UserCountChart() {
     </Card>
   );
 }
+
+export function TimeSpentChart() {
+  return (
+    <Card className="w-full shadow-none border-none">
+      <CardHeader className="flex flex-col items-start">
+        <CardTitle>Activity</CardTitle>
+        <CardDescription>20 hours for last 24 hours</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <BarChart accessibilityLayer data={chartData}>
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+              tickFormatter={(value) => value.slice(0, 3)}
+            />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={8} />
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
+  )
+}

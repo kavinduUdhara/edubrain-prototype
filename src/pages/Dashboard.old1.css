@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
+.dashboard-pg-holder {
+  @apply h-svh overflow-hidden;
+}
+.dashboard-pg {
+  @apply flex h-full w-full overflow-hidden p-2 gap-2;
+}
+.dashboard-pg .left {
+  @apply w-full max-w-80 bg-slate-100 shadow-md rounded-lg overflow-hidden p-2 pt-10;
+}
+.dashboard-pg .left .profile-det-holder {
+  @apply flex flex-col items-center text-center;
+}
+.dashboard-pg .left .profile-det-holder .profile-pic-holder {
+  @apply bg-white w-20 rounded-full overflow-hidden p-[2px] *:rounded-full shadow-md;
+}
+.dashboard-pg .left .profile-det-holder .name {
+  @apply line-clamp-1 text-xl font-bold mt-5;
+}
+.dashboard-pg .left .profile-det-holder .username {
+  @apply bg-white px-1 rounded-full text-sm shadow-sm;
+}
+.dashboard-pg .left .profile-det-holder .chart-holder {
+  @apply w-full mt-7;
+}
+.dashboard-pg .right {
+  @apply p-3  w-full items-center flex flex-col overflow-auto  rounded-md;
+}
+.dashboard-pg .right .greeting-section {
+  @apply max-w-2xl w-full text-3xl bg-slate-50 p-3 px-5 rounded-xl;
+}
+.dashboard-pg .right .greeting-section h1 {
+  @apply  drop-shadow-md;
+}
+.dashboard-pg .right .fetures-offered {
+  @apply w-full;
+}
+.dashboard-pg .right .fetures-offered .title h1{
+  @apply  w-full text-xl items-center;
+}
+.dashboard-pg .right .fetures-offered .title span{
+  @apply bg-yellow-200 px-1  rounded-full items-center inline-flex gap-1 text-sm;
+  font-family: "Gloria Hallelujah", cursive;
+}
+.dashboard-pg .right .fetures-offered .title svg{
+  @apply  inline-flex w-3 h-3 items-center;
+}
+.dashboard-pg .right .fetures-offered .f-list{
+  @apply flex gap-5  px-2 pt-5 flex-wrap;
+}
+.dashboard-pg .right .fetures-offered .f-list .f-itme{
+  @apply bg-slate-50 p-3 shadow-sm rounded-lg max-w-80 w-full space-y-2 flex flex-col justify-between;
+}
+.dashboard-pg .right .fetures-offered .f-list .f-itme .title{
+  @apply text-2xl font-bold;
+}
+.dashboard-pg .right .fetures-offered .f-list .f-itme p{
+  @apply text-justify;
+}
+.dashboard-pg .right .fetures-offered .f-list .f-itme button{
+  @apply bg-blue-100 p-1 px-3 rounded-lg self-end;
+}

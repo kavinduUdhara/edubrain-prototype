@@ -4,6 +4,8 @@ import flotingObjectsImg from "../assets/img/objects/floating-objects.png";
 import { ImLab } from "react-icons/im";
 import { RiGeminiFill } from "react-icons/ri";
 import { CiCircleInfo } from "react-icons/ci";
+import { GiPartyPopper } from "react-icons/gi";
+import { RiExternalLinkFill } from "react-icons/ri";
 import { Settings } from "lucide-react";
 export default function Dashboard() {
   return (
@@ -31,13 +33,17 @@ export default function Dashboard() {
                 <Settings />
               </button>
             </div> */}
-            <img src={flotingObjectsImg} alt="floating objects" className="flo-obj-img"/>
+            <img
+              src={flotingObjectsImg}
+              alt="floating objects"
+              className="flo-obj-img"
+            />
           </div>
         </div>
         <div className="bottom-holder">
           <div className=""></div>
           <div className="def-child content">
-            <div className="ai-s-child">
+            {/* <div className="ai-s-child">
               <h1 className="title">
                 {" "}
                 <RiGeminiFill />
@@ -49,11 +55,26 @@ export default function Dashboard() {
                 suggestions!
               </div>
               <div className="sug-list"></div>
-            </div>
+            </div> */}
             <div className="fetures-sec">
               <h1 className="title">
-                Fetrues on <span><ImLab/> prototype</span>
+                <GiPartyPopper /> Fetrues on{" "}
+                <span>
+                  <ImLab /> prototype
+                </span>
               </h1>
+              <div className="f-list">
+                <div className="f-item">
+                  <h1>Past Paper Practice</h1>
+                  <p>Students can practice exam questions and receive AI-powered insights on areas needing improvement.</p>
+                  <button>Practice Past Papers <RiExternalLinkFill /></button>
+                </div>
+                <div className="f-item">
+                  <h1>AI-Enhanced Forum</h1>
+                  <p>A collaborative space for students to ask questions, share ideas, and receive AI-generated responses, with peer discussions encouraged.</p>
+                  <button>Ask a questions <RiExternalLinkFill /></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
