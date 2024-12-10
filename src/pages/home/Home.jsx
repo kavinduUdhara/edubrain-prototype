@@ -17,7 +17,36 @@ import { TbHeart, TbPrompt, TbUser } from "react-icons/tb";
 import { UserCountChart } from "@/components/chart";
 import { LucideCodeXml, LucideGamepad2, LucideNewspaper } from "lucide-react";
 
+import { handleGoogleLogin } from "../signIn/register/RegisterFucntions";
+import { auth } from "@/firebase";
+import { useEffect, useState } from "react";
+import { redirect, useNavigate } from "react-router-dom";
+import photoURL from "../../assets/profile.png";
+
 export default function Home() {
+  const navigate = useNavigate();
+
+  //get user info if they have already logged in
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        console.log("User is already logged in", user);
+        setUser(user);
+      } else {
+        setUser(null); // Handle if no user is logged in
+      }
+    });
+
+    // Cleanup the listener on component unmount
+    return () => unsubscribe();
+  }, []);
+
+  const handelGoToDashboard = () => {
+    navigate("/dashboard")
+  };
+
   return (
     <div className="def-page home-page">
       <div className="def-holder main-banner-holder">
@@ -28,10 +57,21 @@ export default function Home() {
         </div>
         <div className="def-child main-banner">
           <img className="spaceship" src={spaceshipImg} />
-          <button className="sign-in-btn">
-            <FcGoogle />
-            Sign in
-          </button>
+          {!user && (
+            <button className="sign-in-btn" onClick={handleGoogleLogin}>
+              <FcGoogle />
+              Sign in
+            </button>
+          )}
+          {user && (
+            <button className="redirect-btn max-w-[150px]" onClick={handelGoToDashboard}>
+              <img src={user.photoURL} />
+              <div className="info">
+                <div className="name">{user.displayName}</div>
+                <p>Go to Dashboard</p>
+              </div>
+            </button>
+          )}
           <div className="main-banner-content">
             <h1>EduBrain</h1>
             <p>
@@ -132,7 +172,7 @@ export default function Home() {
         </div>
       </div>
       <div className="def-holder problem-statement-holder">
-        <img className="planet-img-2" src={planetImg} alt="planet"/>
+        <img className="planet-img-2" src={planetImg} alt="planet" />
         <div className="def-child problem-statement">
           <div className="def-section statement">
             <div className="max-w-md flex flex-col gap-3">
@@ -218,16 +258,42 @@ export default function Home() {
       <div className="def-holder sign-in-msg-holder">
         <div className="def-child sign-in-msg">
           <div className="left">
-            <h3>If you are an <span>AL ICT</span> student why wait?</h3>
-            <p>Click on sign-in to enjoy the <span><ImLab/> prototype</span></p>
+            <h3>
+              If you are an <span>AL ICT</span> student why wait?
+            </h3>
+            <p>
+              Click on sign-in to enjoy the{" "}
+              <span>
+                <ImLab /> prototype
+              </span>
+            </p>
           </div>
           <div className="right">
-            <button><FcGoogle/> Sign in with Google</button>
+            {!user && (
+              <button onClick={handleGoogleLogin}>
+                <FcGoogle /> Sign in with Google
+              </button>
+            )}
+            {user && (
+              <button className="redirect-btn max-w-[200px]" onClick={handelGoToDashboard}>
+                <img src={user.photoURL} alt="user profile" />
+                <div className="info">
+                  <div className="name">{user.displayName}</div>
+                  <p>Go to Dashboard</p>
+                </div>
+              </button>
+            )}
           </div>
         </div>
       </div>
       <div className="def-holder text-sm pb-3 text-gray-700 underline">
-       <a href="https://www.linkedin.com/in/kavindu-udhara/" target="_blank" rel="noopener noreferrer">Who Developed this? </a> 
+        <a
+          href="https://www.linkedin.com/in/kavindu-udhara/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Who Developed this?{" "}
+        </a>
       </div>
     </div>
   );

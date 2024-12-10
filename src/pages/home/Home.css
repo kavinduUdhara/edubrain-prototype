@@ -38,6 +38,21 @@
 .home-page .main-banner-holder .main-banner .sign-in-btn svg {
   @apply w-6 h-6;
 }
+.home-page .redirect-btn {
+  @apply bg-white self-end flex items-center gap-2 p-2 pr-3 rounded-full text-lg shadow-md;
+}
+.home-page .redirect-btn img{
+  @apply w-7 h-7 rounded-full;
+}
+.home-page .redirect-btn .info{
+  @apply w-full flex flex-col items-start -space-y-2 overflow-hidden;
+}
+.home-page .redirect-btn .name{
+  @apply max-w-full overflow-hidden text-ellipsis text-nowrap text-left;
+}
+.home-page .redirect-btn p{
+  @apply max-w-full overflow-hidden text-ellipsis text-nowrap text-xs text-left font-normal;
+}
 .home-page .main-banner-holder .main-banner .main-banner-content {
   @apply -space-y-0 -mt-10;
 }
