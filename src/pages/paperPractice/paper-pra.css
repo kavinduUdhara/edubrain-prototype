@@ -73,7 +73,7 @@ body {
   @apply flex flex-col items-center mt-10;
 }
 
-.q-pan-holder .download-q .img-spaceship {
+.q-pan-holder .download-q .img-ollie {
   @apply max-w-64 w-full drop-shadow-xl;
 }
 

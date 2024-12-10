@@ -1,0 +1,29 @@
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  z-index: 100;
+}
+::-webkit-scrollbar-track {
+  @apply mt-3 mb-3;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full cursor-auto mt-5 mb-5 duration-300 bg-slate-300 hover:bg-slate-400;
+  background-clip: padding-box;
+  border: 3px solid transparent;
+  border-top: 90px;
+  border-radius: 8px;
+  box-shadow: none;
+  min-height: 50px;
+}
+.q-nums-wrap::-webkit-scrollbar {
+    width: 5px;
+  }
+.q-nums-wrap::-webkit-scrollbar-thumb {
+  @apply rounded-full cursor-auto mt-5 mb-5 duration-300 bg-slate-300 hover:bg-slate-400;
+  background-clip: none;
+  border: none;
+  border-top: 90px;
+  border-radius: 8px;
+  box-shadow: none;
+  min-height: 50px;
+}

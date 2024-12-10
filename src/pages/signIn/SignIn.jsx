@@ -15,13 +15,17 @@ import { BsChatQuote } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { IoChevronForward } from "react-icons/io5";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 import coffeeMugImg from "../../assets/img/objects/coffee-mug-1.png";
 import bookImg from "../../assets/img/objects/books-4.png";
 import lightBulbImg from "../../assets/img/objects/light-bulb.png";
 import chairImg from "../../assets/img/objects/chair.png";
 
+import photoURL from "../../assets/profile.png";
+
 export default function Login() {
+  const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
 
@@ -48,10 +52,10 @@ export default function Login() {
             toast.success("You'll be redirected to the dashboard", {
               id: tostID,
             });
-            window.location.replace("/dashboard");
+            navigate("/dashboard");
           } else {
             toast.success("You'll be redirected to register", { id: tostID });
-            window.location.replace("/register");
+            navigate("/register");
           }
         })
         .catch((error) => {
@@ -84,7 +88,7 @@ export default function Login() {
   const handleSignOut = async () => {
     try {
       await signOut(auth);
-      router.push("/log-in"); // Redirect to login page after sign out
+      navigate("/log-in"); // Redirect to login page after sign out
     } catch (error) {
       console.error("Error during sign out", error);
     }

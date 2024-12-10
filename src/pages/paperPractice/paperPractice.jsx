@@ -46,6 +46,8 @@ import ErrorWithOllie from "@/components/ErrorWithOllie/ErrorWithOllie";
 
 import { useParams, useNavigate } from "react-router-dom";
 
+import floatingObjsImg from "@/assets/img/objects/floating-objects.png";
+
 export default function PaperPractice() {
 
   const navigate = useNavigate();
@@ -949,7 +951,7 @@ export default function PaperPractice() {
       )}
       {!loadingPaper && !paperNotFound && (
         <div className="def-holder pp-pra-holder">
-          <div className="def-child pp-pra">
+          <div className="w-full max-w-7xl pp-pra">
             <div className="dashboard">
               <div className="left">
                 <button className="back-btn">
@@ -968,7 +970,8 @@ export default function PaperPractice() {
                 </div>
                 <img
                   className="obj-img"
-                  src="/img/objects/learning-elements/floating-objects.png"
+                  src={floatingObjsImg}
+                  alt="floating objects"
                 />
               </div>
               <div className="right">
@@ -1155,7 +1158,7 @@ export default function PaperPractice() {
                         <div className="download-q">
                           <img
                             src="/img/objects/octopus-on-the-coutch.png"
-                            className="img-spaceship"
+                            className="img-ollie"
                           />
                           {loadingQuestions.bool && (
                             <div className="w-full flex flex-col items-center text-center">

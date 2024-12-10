@@ -14,8 +14,8 @@
 .top-holder .top-menu .left{
     @apply flex items-center gap-2 z-10 bg-white bg-opacity-60 backdrop-blur-md rounded-md;
 }
-.top-holder .top-menu .profile-holder{
-    @apply w-10 min-w-10 h-10 rounded-full overflow-hidden p-[2px] bg-white *:rounded-full shadow-md;
+.top-holder .top-menu .profile-holder img{
+    @apply w-10 min-w-10 h-10 rounded-full overflow-hidden p-[2px] bg-white *:rounded-full shadow-md object-cover;
 }
 .top-holder .top-menu .welcome-txt{
     @apply -space-y-1 flex flex-col;
@@ -27,7 +27,7 @@
     @apply inline-flex *:inline-flex items-center gap-2 *:items-center text-sm 
 }
 .top-holder .top-menu .left span{
-    @apply bg-yellow-300 text-xs shadow-md flex gap-1 sm:px-2 rounded-full overflow-hidden max-w-5 sm:max-w-full px-1 duration-300;
+    @apply bg-yellow-200 text-xs shadow-md flex gap-1 rounded-full overflow-hidden max-w-5 px-1 duration-300;
     font-family: "Gloria Hallelujah", cursive;
 }
 .top-holder .top-menu .left svg{

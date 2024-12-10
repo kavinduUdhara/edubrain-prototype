@@ -8,7 +8,11 @@ import { GiPartyPopper } from "react-icons/gi";
 import { RiExternalLinkFill } from "react-icons/ri";
 import { LucideNewspaper, Settings } from "lucide-react";
 import { MdOutlineChatBubbleOutline } from "react-icons/md";
+import { auth } from "@/firebase";
+
 export default function Dashboard() {
+  const user = auth.currentUser;
+
   return (
     <div className="page-holder">
       <div className="dashboard-page">
@@ -16,7 +20,7 @@ export default function Dashboard() {
           <div className="def-child top-menu">
             <div className="left">
               <div className="profile-holder">
-                <img src={profileImg} />
+                <img src={user.photoURL} />
               </div>
               <div className="welcome-txt">
                 <h1>Hello, Kavindu!</h1>

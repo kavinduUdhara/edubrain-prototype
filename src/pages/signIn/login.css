@@ -1,63 +1,65 @@
-.log-in-card-wrapper{
-    @apply flex relative px-5 w-full select-none max-w-sm;
+.log-in-card-wrapper {
+  @apply flex relative px-5 w-full select-none max-w-sm;
 }
-.log-in-card{
-    @apply bg-white bg-opacity-50 backdrop-blur-md w-full p-5 py-10 mt-24 rounded-lg shadow-xl flex flex-col items-center gap-8 z-10;
+.log-in-card {
+  @apply bg-white bg-opacity-50 backdrop-blur-md w-full p-5 py-10 mt-24 rounded-lg shadow-xl flex flex-col items-center gap-8 z-10;
 }
-.log-in-card .logo-info{
-    @apply flex items-center gap-2;
+.log-in-card .logo-info {
+  @apply flex items-center gap-2;
 }
-.log-in-card p{
-    @apply px-2 text-center;
+.log-in-card p {
+  @apply px-2 text-center;
 }
-.log-in-card p svg{
-    @apply inline-block;
+.log-in-card p svg {
+  @apply inline-block;
 }
-.log-in-card .log-in-btn{
-    @apply bg-white shadow-md flex gap-2 items-center p-1 rounded-full px-2;
+.log-in-card .log-in-btn {
+  @apply bg-white shadow-md flex gap-2 items-center p-1 rounded-full px-2;
 }
-.img-apple{
-    @apply absolute w-16 -left-6 -bottom-4 z-0 drop-shadow-md;
-    transform: rotate(30deg);
+.img-apple {
+  @apply absolute w-16 -left-6 -bottom-4 z-0 drop-shadow-md;
+  transform: rotate(30deg);
 }
-.img-chair{
-    @apply absolute w-32 sm:-right-10 right-3 -bottom-16 z-0 duration-300 drop-shadow-2xl;
-    transform: rotate(10deg);
+.img-chair {
+  @apply absolute w-32 sm:-right-10 right-3 -bottom-16 z-0 duration-300 drop-shadow-2xl;
+  transform: rotate(10deg);
 }
-.img-spaceship{
-    @apply absolute w-12 -top-5 -left-6 z-0 drop-shadow-lg;
-    transform: rotate(-30deg);
+.img-spaceship {
+  @apply absolute w-12 -top-5 -left-6 z-0 drop-shadow-lg;
+  transform: rotate(-30deg);
 }
-.img-light-bulb{
-    @apply absolute w-28 -top-14 right-5 z-0 drop-shadow-lg;
+.img-light-bulb {
+  @apply absolute w-28 -top-14 right-5 z-0 drop-shadow-lg;
 }
-.login-sessions-holder{
-    @apply w-full;
+.login-sessions-holder {
+  @apply w-full;
 }
 .login-sessions-holder .session {
-    @apply bg-white flex gap-1 shadow-lg rounded-3xl p-2 items-center cursor-pointer w-full;
-  }
-  
-  .login-sessions-holder .session .profile {
-    @apply min-w-9 w-9 h-9 rounded-full overflow-hidden;
-  }
-  
-  .login-sessions-holder .session .more-info{
-    @apply w-full overflow-hidden flex flex-col items-start;
-  }
-  
-  .login-sessions-holder .session .name {
-    @apply text-base max-w-full w-fit;
-    /* Custom styles for email truncation */
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  .login-sessions-holder .session .email {
-    @apply text-xs bg-slate-600 px-1 rounded-full text-white max-w-full w-fit overflow-hidden;
-    /* Custom styles for email truncation */
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  
+  @apply bg-white flex gap-1 shadow-lg rounded-3xl p-2 items-center cursor-pointer w-full;
+}
+
+.login-sessions-holder .session .profile {
+  @apply min-w-9 w-9 h-9 rounded-full overflow-hidden bg-white shadow-sm object-cover;
+}
+.login-sessions-holder .session .profile img{
+  @apply w-full h-full;
+}
+
+.login-sessions-holder .session .more-info {
+  @apply w-full overflow-hidden flex flex-col items-start;
+}
+
+.login-sessions-holder .session .name {
+  @apply text-base max-w-full w-fit;
+  /* Custom styles for email truncation */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.login-sessions-holder .session .email {
+  @apply text-xs bg-slate-600 px-1 rounded-full text-white max-w-full w-fit overflow-hidden;
+  /* Custom styles for email truncation */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
