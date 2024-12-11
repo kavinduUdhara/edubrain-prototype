@@ -19,30 +19,36 @@ export default function Dashboard() {
         <div className="def-holder top-holder">
           <div className="def-child top-menu">
             <div className="left">
-              <div className="profile-holder">
-                <img src={user.photoURL} />
+              <div className="logo-holder">
+                <div className="logo-icon-holder">
+                  <img src="/main-logo.svg" />
+                </div>
+                <h1>EduBrain <span><ImLab/></span></h1>
               </div>
-              <div className="welcome-txt">
-                <h1>Hello, Kavindu!</h1>
-                <p>
+            </div>
+            <div className="right">
+              <button className="profile-info-holder">
+                <div className="profile-holder">
+                  <img src={user.photoURL} />
+                </div>
+                <div className="welcome-txt">
+                  <h1>Kavindu Udhara</h1>
+                  <p>@kavinduudhara</p>
+                  {/* <p>
                   Welcome to EduBrain{" "}
                   <span>
                     <ImLab /> Prototype
                   </span>
-                </p>
-              </div>
+                </p> */}
+                </div>
+              </button>
             </div>
 
-            {/* <div className="right">
-              <button>
-                <Settings />
-              </button>
-            </div> */}
-            <img
+            {/* <img
               src={flotingObjectsImg}
               alt="floating objects"
               className="flo-obj-img"
-            />
+            /> */}
           </div>
         </div>
         <div className="bottom-holder">
@@ -70,14 +76,30 @@ export default function Dashboard() {
               </h1>
               <div className="f-list">
                 <div className="f-item">
-                  <h1><LucideNewspaper />Past Paper Practice</h1>
-                  <p>Students can practice exam questions and receive AI-powered insights on areas needing improvement.</p>
-                  <button>Practice Past Papers <RiExternalLinkFill /></button>
+                  <h1>
+                    <LucideNewspaper />
+                    Past Paper Practice
+                  </h1>
+                  <p>
+                    Students can practice exam questions and receive AI-powered
+                    insights on areas needing improvement.
+                  </p>
+                  <button>
+                    Practice Past Papers <RiExternalLinkFill />
+                  </button>
                 </div>
                 <div className="f-item">
-                  <h1><MdOutlineChatBubbleOutline /> AI-Enhanced Forum</h1>
-                  <p>A collaborative space for students to ask questions, share ideas, and receive AI-generated responses, with peer discussions encouraged.</p>
-                  <button>Ask a questions <RiExternalLinkFill /></button>
+                  <h1>
+                    <MdOutlineChatBubbleOutline /> AI-Enhanced Forum
+                  </h1>
+                  <p>
+                    A collaborative space for students to ask questions, share
+                    ideas, and receive AI-generated responses, with peer
+                    discussions encouraged.
+                  </p>
+                  <button>
+                    Ask a questions <RiExternalLinkFill />
+                  </button>
                 </div>
               </div>
             </div>

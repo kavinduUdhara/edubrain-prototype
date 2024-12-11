@@ -27,3 +27,53 @@
   box-shadow: none;
   min-height: 50px;
 }
+
+.def-logo-img {
+  @apply bg-white rounded-full select-none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 2px;
+}
+.def-logo-txt {
+  font-family: "Lilita One", sans-serif;
+}
+.def-loading-svg {
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.def-loading-box {
+  @apply relative overflow-hidden rounded-xl mt-2;
+}
+
+/* Gradient animation */
+.def-loading-box::before {
+  @apply absolute top-0 left-0 w-full h-full z-10;
+  content: "";
+  background: linear-gradient(
+    to right,
+    #f1f5f900,
+    #f8fafc,
+    #f1f5f900
+  ); /* Gradient from gray to white */
+  animation: slideGradient 0.5s alternate-reverse infinite;
+}
+@keyframes slideGradient {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+.def-img-with-loading {
+  @apply rounded-md max-w-lg bg-slate-100 h-44 select-none;
+}
+.def-img-with-loading-txt {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white p-1 px-2 rounded-full flex items-center justify-center gap-2 shadow-md;
+}

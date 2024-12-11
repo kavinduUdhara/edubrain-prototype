@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-export default function ImageWithLoading({ src, alt, ...props }) {
+export default function ImageWithLoading({ src, alt, maxW, ...props }) {
   const [loading, setLoading] = useState(true);
 
   const handleImageLoad = () => {
@@ -34,6 +34,7 @@ export default function ImageWithLoading({ src, alt, ...props }) {
           <img
             src={src}
             alt={alt}
+            style={{maxWidth: `${maxW}`}}
             {...props}
             onLoad={() => {
               setLoading(false);

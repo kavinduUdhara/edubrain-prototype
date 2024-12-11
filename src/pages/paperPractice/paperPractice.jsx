@@ -48,8 +48,9 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import floatingObjsImg from "@/assets/img/objects/floating-objects.png";
 
-export default function PaperPractice() {
+import { processQuestionToHtml, parseHtml } from "./PastPaperFunc";
 
+export default function PaperPractice() {
   const navigate = useNavigate();
 
   const paperId = useParams().pp_id;
@@ -88,23 +89,6 @@ export default function PaperPractice() {
   });
   const [syncedMuntesAgo, setMinutesAgo] = useState(0);
   const [syncIntervalId, setSyncIntervalId] = useState(null);
-
-  const parseHtml = (html) => {
-    return parse(html, {
-      replace: (domNode) => {
-        if (domNode.name === "img") {
-          return (
-            <ImageWithLoading
-              src={domNode.attribs.src}
-              alt={domNode.attribs.alt || ""}
-            />
-          );
-        }
-        return domNode;
-      },
-    });
-  };
-
 
   //timer
   useEffect(() => {
@@ -438,23 +422,21 @@ export default function PaperPractice() {
           },
         }));
         console.log(question);
-        let html_q_title = processHtmlToCustomHtml(
-          marked.parse(question.q_title)
-        );
+        let html_q_title = DOMPurify.sanitize(processQuestionToHtml(String(question.q_title)));
         let html_ans1 = DOMPurify.sanitize(
-          processHtmlToCustomHtml(marked.parse(String(question.ans1)))
+          processQuestionToHtml(String(question.ans1))
         );
         let html_ans2 = DOMPurify.sanitize(
-          processHtmlToCustomHtml(marked.parse(String(question.ans2)))
+          processQuestionToHtml(String(question.ans2))
         );
         let html_ans3 = DOMPurify.sanitize(
-          processHtmlToCustomHtml(marked.parse(String(question.ans3)))
+          processQuestionToHtml(String(question.ans3))
         );
         let html_ans4 = DOMPurify.sanitize(
-          processHtmlToCustomHtml(marked.parse(String(question.ans4)))
+          processQuestionToHtml(String(question.ans4))
         );
         let html_ans5 = DOMPurify.sanitize(
-          processHtmlToCustomHtml(marked.parse(String(question.ans5)))
+          processQuestionToHtml(String(question.ans5))
         );
         setCurrentQuestionContent({
           title: html_q_title,
@@ -464,6 +446,7 @@ export default function PaperPractice() {
           ans4: html_ans4,
           ans5: html_ans5,
         });
+        console.log("html_q_title", html_q_title);
 
         //scroll to the very top
         const element = document.getElementById("q-pan-holder");
@@ -579,53 +562,6 @@ export default function PaperPractice() {
     setCurrentQuestionId(paper.q_ids[0]);
     setLoadingQuestions((prevState) => ({ ...prevState, started: true }));
   };
-  function processHtmlToCustomHtml(html) {
-    let modifiedHTML = processTableClosingTag(html);
-    modifiedHTML = processTableOpeningTag(modifiedHTML);
-    modifiedHTML = processOlClass(modifiedHTML);
-    modifiedHTML = convertMarkdownInLi(modifiedHTML);
-    modifiedHTML = replaceArrow(modifiedHTML);
-    return modifiedHTML;
-  }
-  function processTableOpeningTag(html) {
-    return html.replace(
-      /<table>/g,
-      '<div class="table-holder"><table class="table">'
-    );
-  }
-  function processTableClosingTag(html) {
-    return html.replace(/<\/table>/g, "</table></div>");
-  }
-  function processOlClass(html) {
-    return html.replace(
-      /<ol class=""upper-alpha"">/g,
-      '<ol class="upper-alpha">'
-    );
-  }
-  function replaceArrow(html) {
-    return html.replace(
-      /-&gt;/g,
-      '<svg style="display:inline-block; width: 18px; height: 18px" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg>'
-    );
-  }
-
-  function convertMarkdownInLi(text) {
-    // Define the replacements for bold and italic within <li> tags
-    const boldPattern = /\*\*(.*?)\*\*/g; // Matches **text**
-    const italicPattern = /_(.*?)_/g; // Matches _text_
-
-    // Find all <li> tags and replace the content inside them
-    return text.replace(
-      /(<li[^>]*>)([\s\S]*?)(<\/li>)/g,
-      (match, openingTag, content, closingTag) => {
-        // Replace **text** with <strong>text</strong> and _text_ with <em>text</em>
-        const processedContent = content
-          .replace(boldPattern, "<strong>$1</strong>")
-          .replace(italicPattern, "<em>$1</em>");
-        return `${openingTag}${processedContent}${closingTag}`;
-      }
-    );
-  }
 
   useEffect(() => {
     if (
@@ -1016,7 +952,7 @@ export default function PaperPractice() {
                   )}
                 </button>
                 <div className="profile">
-                  <img src="/profile.png" />
+                  <img src={auth.currentUser.photoURL} />
                 </div>
                 <div className="info-holder">
                   <div className="mood">
@@ -1247,7 +1183,7 @@ export default function PaperPractice() {
                               </span>
                               <label className="ans-lab" for="1">
                                 <div>
-                                  {parse(currentQuestionContent?.ans1 || "")}
+                                  {parseHtml(currentQuestionContent?.ans1 || "")}
                                 </div>
                               </label>
                             </label>
@@ -1263,7 +1199,7 @@ export default function PaperPractice() {
                               </label>
                               <label className="ans-lab" for="2">
                                 <div>
-                                  {parse(currentQuestionContent?.ans2 || "")}
+                                  {parseHtml(currentQuestionContent?.ans2 || "")}
                                 </div>
                               </label>
                             </label>
@@ -1279,7 +1215,7 @@ export default function PaperPractice() {
                               </label>
                               <label className="ans-lab" for="3">
                                 <div>
-                                  {parse(currentQuestionContent?.ans3 || "")}
+                                  {parseHtml(currentQuestionContent?.ans3 || "")}
                                 </div>
                               </label>
                             </label>
@@ -1295,7 +1231,7 @@ export default function PaperPractice() {
                               </label>
                               <label className="ans-lab" for="4">
                                 <div>
-                                  {parse(currentQuestionContent?.ans4 || "")}
+                                  {parseHtml(currentQuestionContent?.ans4 || "")}
                                 </div>
                               </label>
                             </label>
@@ -1311,7 +1247,7 @@ export default function PaperPractice() {
                               </label>
                               <label className="ans-lab" for="5">
                                 <div>
-                                  {parse(currentQuestionContent?.ans5 || "")}
+                                  {parseHtml(currentQuestionContent?.ans5 || "")}
                                 </div>
                               </label>
                             </label>
