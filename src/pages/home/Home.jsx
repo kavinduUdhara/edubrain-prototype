@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import photoURL from "../../assets/profile.png";
 
+
 export default function Home() {
   const navigate = useNavigate();
 

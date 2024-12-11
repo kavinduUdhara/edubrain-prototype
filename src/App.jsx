@@ -5,6 +5,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import PaperPractice from "./pages/paperPractice/paperPractice";
 import AuthProtectedLayout from "./layout/AuthProtecetdLayout";
 import Login from "./pages/signIn/SignIn";
+import AttemptSummaryPage from "./pages/paperPractice/AttemptSummary/AttemptSummary";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/paper-practice/:pp_id" element={<AuthProtectedLayout><PaperPractice /></AuthProtectedLayout>} />
         <Route path="/paper-practice" element={<Navigate to="/dashboard"/>}/>
+        <Route path="/paper-attempt/:att_id" element={<AuthProtectedLayout><AttemptSummaryPage/></AuthProtectedLayout>}/>
       </Routes>
     </Router>
   )

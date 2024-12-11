@@ -1007,7 +1007,7 @@ export default function PaperPractice() {
                     <div className="submit-progress-child">
                       <img
                         src="/img/objects/octopus-on-the-coutch.png"
-                        className="img-spaceship max-w-64 w-full drop-shadow-xl text-center select-none"
+                        className="img-ollie max-w-64 w-full drop-shadow-xl text-center select-none"
                       />
                       <h1>Finalizing your answers.</h1>
                       <p className="text-center">
@@ -1295,4 +1295,3 @@ export default function PaperPractice() {
     </div>
   );
 }
-``;

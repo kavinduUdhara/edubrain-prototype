@@ -10,6 +10,8 @@ import { LucideNewspaper, Settings } from "lucide-react";
 import { MdOutlineChatBubbleOutline } from "react-icons/md";
 import { auth } from "@/firebase";
 
+import UnitsFlowChart from "@/components/UnitsOverviewTree";
+
 export default function Dashboard() {
   const user = auth.currentUser;
 
@@ -54,6 +56,7 @@ export default function Dashboard() {
         <div className="bottom-holder">
           <div className=""></div>
           <div className="def-child content">
+            <UnitsFlowChart/>
             {/* <div className="ai-s-child">
               <h1 className="title">
                 {" "}

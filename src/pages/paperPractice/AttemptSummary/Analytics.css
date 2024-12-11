@@ -1,0 +1,450 @@
+.analytics-holder {
+    @apply sm:px-2 px-0 flex flex-col gap-5 duration-300;
+  }
+  .analytics-holder .main-info {
+    @apply flex justify-between items-center flex-wrap gap-2;
+  }
+  .analytics-holder .main-info .title-info h1 {
+    @apply text-2xl;
+  }
+  .analytics-holder .main-info .title-info .other-info {
+    @apply text-sm inline-flex gap-1 flex-wrap;
+  }
+  .analytics-holder .main-info .title-info .other-info .pp-id,
+  .yr {
+    @apply bg-slate-100 px-2 rounded-full;
+  }
+  .analytics-holder .main-info .title-info .other-info .yr {
+    @apply bg-blue-100;
+  }
+  .analytics-holder .main-info .select-attempt {
+    @apply p-1 px-2 flex flex-col items-end;
+    @apply text-sm md:text-base duration-300;
+  }
+  .analytics-holder .main-info .select-attempt .selected-attempt {
+    @apply inline-flex items-center gap-1 bg-slate-100 rounded-full p-1 px-2;
+  }
+  .analytics-holder .main-info .select-attempt .date{
+    @apply text-xs p-1 px-2 flex gap-1 items-center;
+  }
+  .analytics-holder .overall-progress {
+    @apply flex justify-between items-center gap-4 flex-wrap duration-300;
+  }
+  .analytics-holder .overall-progress .progress,
+  .main-progress {
+    @apply p-2 rounded-md min-w-20;
+  }
+  .analytics-holder .overall-progress .progress {
+    @apply bg-slate-50 relative min-w-28;
+  }
+  .analytics-holder .overall-progress .progress-title {
+    @apply inline-flex gap-1 items-center;
+  }
+  .analytics-holder .overall-progress .data {
+    @apply text-3xl text-center font-bold;
+  }
+  .data-with-charts1 .chart1 {
+    @apply flex bg-slate-50 lg:bg-opacity-0 bg-opacity-100 flex-row gap-2 p-2 rounded-md lg:rounded-full px-3;
+  }
+  .data-with-charts1 .chart1 .chart-title {
+    @apply pb-1 block opacity-100 lg:max-h-0 lg:opacity-0 lg:hidden;
+    writing-mode: vertical-lr; /* Text flows vertically, left to right */
+    transform: rotate(180deg); /* Flip text from bottom to top */
+    white-space: nowrap; /* Ensure the text doesn't wrap */
+    font-size: 16px; /* Adjust font size as needed */
+    text-align: center; /* Center the text vertically */
+  }
+  .data-with-charts1 .chart1 .chart-data-ver {
+    @apply flex flex-col lg:flex-row gap-1 lg:gap-2 rounded-md select-none flex-wrap duration-300;
+  }
+  .data-with-charts1 .chart1 .chart-data-ver .ver-bar {
+    @apply flex relative overflow-hidden gap-1 justify-between items-center w-56 h-8 bg-white p-1 px-3 rounded-2xl text-sm shadow-sm lg:shadow-lg;
+  }
+  .data-with-charts1 .chart1 .chart-data-ver .ver-bar > * {
+    @apply z-30;
+  }
+  .data-with-charts1 .chart1 .chart-data-ver .ver-bar .title {
+    @apply inline-flex gap-1 items-center;
+  }
+  .data-with-charts1 .chart1 .chart-data-ver .ver-bar .data {
+    @apply text-xs bg-white px-1 rounded-full shadow-md;
+  }
+  .data-with-charts1 .chart1 .chart-data-ver .ver-bar .bar {
+    @apply absolute h-full left-0 bg-slate-100 z-10 rounded-2xl shadow-sm;
+  }
+  .data-with-charts1 .chart1 .chart-data-ver .ver-bar .bar.correct {
+    @apply bg-green-100;
+  }
+  .data-with-charts1 .chart1 .chart-data-ver .ver-bar .bar.wrong {
+    @apply bg-yellow-100;
+  }
+  .data-with-charts1 .chart1.units {
+    @apply bg-white rounded-md;
+  }
+  .data-with-charts1 .chart1.units .ver-bar {
+    @apply bg-slate-50;
+  }
+  .data-with-charts1 .chart1.units .ver-bar .bar {
+    @apply bg-slate-200;
+  }
+  .data-with-charts1 .chart-data-ver.units {
+    @apply flex-col;
+  }
+  .data-with-charts {
+    @apply flex flex-wrap gap-3 items-start justify-center;
+  }
+  .data-with-charts .chart-holder {
+    @apply flex flex-col gap-0 bg-slate-50 rounded-md p-0 shadow;
+  }
+  .data-with-charts .chart-holder .chart-title{
+    @apply p-2 items-center;
+  }
+  .data-with-charts .chart-holder .chart-title svg {
+    @apply inline-block -mt-1;
+  }
+  .data-with-charts .chart-holder .scroll-chart-holder {
+    @apply bg-white rounded-md shadow-sm p-1 m-1 mt-0 relative;
+  }
+  .data-with-charts .chart-holder .scroll-chart {
+    @apply overflow-x-auto overflow-y-hidden;
+  }
+  .data-with-charts .chart-holder .scroll-chart .chart {
+    @apply -mb-0;
+  }
+  .apexcharts-toolbar {
+    display: none !important;
+  }
+  .data-with-charts .chart-holder.timespent {
+    @apply w-full overflow-hidden;
+  }
+  .data-with-charts .chart.timespent {
+    @apply -mb-3 -mt-2;
+  }
+  .data-with-charts .chart.timespent {
+    width: 100%;
+    min-width: 1000px;
+  }
+  .chart-holder.chart2 {
+    @apply w-auto;
+  }
+  .chart2-holder {
+    @apply p-1 bg-white  relative overflow-hidden rounded-md m-1 mt-0 shadow-sm max-w-64;
+  }
+  .chart2-scroll-holder .coner {
+    @apply bg-black absolute top-0 left-0 w-4 bottom-3 z-40;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+  .chart2-scroll-holder .coner-right {
+    @apply bg-black absolute top-0 right-0 w-4 bottom-3 z-40;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+  .chart2 {
+    @apply rounded-md w-full justify-start p-2 px-3 flex gap-2 overflow-y-auto;
+  }
+  .chart2 .bar {
+    @apply bg-slate-50 rounded-md relative p-2 px-2 flex flex-col gap-1 w-56 overflow-hidden select-none cursor-pointer shadow-sm;
+  }
+  .chart2 .bar > * {
+    @apply z-30;
+  }
+  .chart2 .bar .top {
+    @apply flex justify-between items-center gap-2 text-sm;
+  }
+  .chart2 .bar .top .unit-data {
+    @apply flex gap-1 items-center;
+  }
+  .chart2 .bar .top .unit-data .unit-no {
+    @apply min-w-6 h-6  rounded-full justify-center items-center flex bg-white bg-opacity-60 backdrop-blur-md;
+    border: 2px dashed #989a9c;
+  }
+  .chart2 .bar .top .achievement {
+    @apply bg-white text-sm rounded-full px-1 shadow-md;
+  }
+  .chart2 .bar .bottom {
+    @apply flex gap-1 items-center text-xs;
+  }
+  .chart2 .bar .bottom .q-asked-bar {
+    @apply w-full h-2 bg-white rounded-full shadow-sm relative overflow-hidden;
+  }
+  .chart2 .bar .bottom .q-asked-bar .q-asked-fill {
+    @apply h-full bg-blue-300 rounded-full shadow-md;
+  }
+  .chart2 .bar .progress-bar {
+    @apply absolute h-full bg-slate-200 left-0 top-0 rounded-md z-0 shadow bg-opacity-50;
+  }
+  .questions-holder {
+    @apply flex flex-col;
+  }
+  .questions-filter-holder {
+    @apply flex flex-col duration-300 max-h-12 overflow-hidden sticky -top-5 z-30 bg-white bg-opacity-50 backdrop-blur-sm rounded-md p-1;
+    transition: margin-bottom 0ms;
+  }
+  
+  .questions-filter-holder.active {
+    @apply p-1 md:p-2 rounded-xl bg-slate-100 max-h-96 -top-4 shadow mb-2;
+  }
+  .questions-filter-holder .top-title {
+    @apply p-1 flex justify-between items-center rounded-lg;
+  }
+  .questions-filter-holder .top-title .title {
+    @apply text-xl font-bold;
+  }
+  .questions-filter-holder .top-title .other-opt {
+    @apply flex items-center gap-2;
+  }
+  .questions-filter-holder .top-title .other-opt .order-by {
+    @apply flex gap-1 items-center;
+  }
+  .questions-filter-holder .top-title .other-opt .order-by button {
+    @apply flex gap-1 items-center px-2 p-1 rounded-md;
+  }
+  .questions-filter-holder .top-title .other-opt .order-by .sort-by-btn {
+    @apply bg-white bg-opacity-0 shadow-none px-1 py-2;
+  }
+  .questions-filter-holder .top-title .other-opt .filter-toggle-btn {
+    @apply rounded-md;
+    padding: 7px;
+  }
+  .questions-filter-holder .top-title button {
+    @apply bg-blue-50 shadow-sm duration-300;
+  }
+  .questions-filter-holder.active .top-title button {
+    @apply bg-white;
+  }
+  .questions-filter-holder.active .top-title button {
+    @apply bg-white;
+  }
+  .questions-filter-holder .more-opt {
+    @apply p-2 flex flex-col gap-2 opacity-0 sm:text-base text-sm duration-300;
+  }
+  .questions-filter-holder.active .more-opt {
+    @apply p-2 flex flex-col gap-2 opacity-100;
+  }
+  .questions-filter-holder .more-opt .filter-opts {
+    @apply flex w-full flex-wrap items-center gap-2;
+  }
+  .questions-filter-holder .more-opt .filter-opts .search-bar {
+    @apply relative shadow-sm overflow-hidden rounded-full flex;
+  }
+  .questions-filter-holder .more-opt .filter-opts .search-bar input {
+    @apply p-1 pl-8 rounded-full;
+  }
+  .questions-filter-holder .more-opt .filter-opts .search-bar svg {
+    @apply absolute left-2;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .questions-filter-holder .more-opt .filter-opts .filter-btns {
+    @apply flex items-center gap-2 flex-wrap;
+  }
+  .filter-by-ans{
+    @apply flex items-stretch bg-white rounded-full flex-wrap p-1 pl-2 shadow-sm;
+    align-items: stretch !important;
+  }
+  .filter-by-ans > *{
+    @apply flex items-center ;
+  }
+  .filter-by-ans > button{
+    @apply bg-slate-50 px-1 rounded-full h-auto flex items-center pr-2 gap-1 duration-300;
+  }
+  .filter-by-ans > button:hover{
+    @apply bg-slate-100;
+  }
+  .filter-by-ans > button.no-banner {
+    @apply pr-1 text-gray-600 bg-white;
+  }
+  .filter-by-ans > button.active {
+    @apply bg-slate-700 text-white shadow-sm;
+  }
+  .questions-filter-holder .more-opt .filter-opts .filter-btns > * {
+    @apply flex items-center gap-1;
+  }
+  .questions-filter-holder .more-opt .filter-opts .filter-btns > button {
+    @apply bg-white p-1 px-2 rounded-full shadow-sm;
+  }
+  .questions-filter-holder
+    .more-opt
+    .filter-opts
+    .filter-btns
+    .select-unit
+    button {
+    @apply bg-white p-1 px-2 rounded-md shadow-sm;
+  }
+  .questions-holder .bottom-filters {
+    @apply sticky -bottom-3 z-20 flex items-center py-2 justify-normal sm:justify-between pl-1 text-sm;
+  }
+  .questions-holder .bottom-filters .filter-by-ans{
+    @apply gap-1 sm:max-w-80 sm:max-h-72 opacity-0 sm:opacity-100 max-w-0 max-h-0 w-full overflow-hidden duration-300;
+  }
+  .questions-holder .applied-filter {
+    @apply text-sm inline-flex gap-2 flex-wrap items-center px-2 bg-white p-1 rounded-full bg-opacity-70 backdrop-blur-sm;
+  }
+  .questions-holder .applied-filter button {
+    @apply flex gap-1 flex-wrap bg-blue-50 items-center p-0 sm:p-1 px-1 rounded-md duration-300;
+  }
+  .questions-holder .questions {
+    @apply mt-5 flex flex-col gap-7 w-full max-w-2xl px-2 self-center;
+  }
+  .questions-holder .summary{
+    @apply bg-slate-50 p-3 rounded-md;
+  }
+  .questions-holder .summary .title{
+    @apply text-base;
+  }
+  .questions-holder .summary .title svg{
+    @apply inline-block -mt-1;
+  }
+  .questions-holder .summary .title .unit{
+    @apply bg-white px-2 p-1 rounded-full shadow-sm;
+  }
+  .questions-holder .summary .sub-units{
+    @apply flex flex-col gap-1 relative mt-3;
+  }
+  .questions-holder .summary .sub-units .line{
+    @apply absolute left-4 h-full w-1 border-l rounded-full z-10;
+    border-left: 2px dashed black;
+  }
+  .questions-holder .summary .sub-units .sub-unit{
+    @apply flex gap-1 z-10;
+  }
+  .questions-holder .summary .sub-units .sub-unit .sub-unit-id{
+    @apply min-w-8 h-5 flex items-center justify-center rounded-full bg-white shadow-md mt-0;
+  }
+  .questions-holder .summary .sub-units .sub-unit .sub-unit-name{
+    @apply mt-0;
+  }
+  .questions-holder .summary .sub-units .sub-unit .more-info{
+    @apply flex flex-col gap-1;
+  }
+  .questions-holder .summary .sub-units .sub-unit .info{
+    @apply flex items-center gap-1 flex-wrap;
+  }
+  .questions-holder .summary .sub-units .sub-unit .info .card{
+    @apply flex items-center bg-white gap-1 px-1 rounded-full;
+  }
+  .questions-holder .summary .sub-units .sub-unit .info .card.correct{
+    @apply bg-blue-100;
+  }
+  .questions-holder .summary .sub-units .sub-unit .info .card.wrong{
+    @apply bg-yellow-100;
+  }
+  .questions-holder .summary .sub-units .sub-unit .info .card.skip{
+    @apply bg-slate-100;
+  }
+  .questions-holder .summary .more-summary{
+    @apply p-1 bg-white mt-2 rounded-md flex gap-2 items-start;
+  }
+  .questions-holder .summary .more-summary .text-more-summary{
+    @apply w-full flex gap-2 flex-wrap select-none;
+  }
+  .questions-holder .summary .more-summary .text-more-summary .card{
+    @apply flex gap-1 bg-slate-50 items-center px-1 rounded-full;
+  }
+  .questions-holder .summary .more-summary .text-more-summary .card .out-of{
+    @apply text-xs text-slate-600 self-end;
+  }
+  .questions-holder .summary .chart2{
+    @apply p-0 min-w-24 max-w-48;
+  }
+  .questions-holder .questions .question {
+    @apply flex gap-1 w-full relative;
+  }
+  .questions-holder .questions .question .q-no {
+    @apply min-w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-none sm:shadow-md  absolute opacity-0 sm:opacity-100 z-10 sm:static duration-300;
+  }
+  .questions-holder .questions .question .q-more-info {
+    @apply flex w-full flex-col overflow-hidden gap-2 pl-0 sm:pl-0 duration-300;
+  }
+  .questions-holder .questions .q-txt-holder {
+    @apply w-full relative flex mb-4;
+    overflow: initial;
+  }
+  .questions-holder .questions .q-txt {
+    @apply w-full mt-0 p-0 sm:p-2 pt-0 sm:pt-0 rounded-md overflow-hidden relative duration-300;
+  }
+  .questions-holder .questions .q-txt.collapsed {
+    @apply max-h-20 visible opacity-100;
+  }
+  .questions-holder .questions .q-txt.expanded {
+    @apply opacity-100 visible;
+    max-height: 1000px;
+  }
+  .questions-holder .questions .q-txt .sm-q-no{
+    @apply text-base inline-block max-w-52 sm:max-w-0 sm:opacity-0 mr-2 sm:mr-0 font-bold;
+  }
+  .questions-holder .q-txt-holder .expand-btn {
+    @apply absolute -bottom-3 right-5 bg-white bg-opacity-70 backdrop-blur-sm flex items-center gap-2 p-1 px-2 rounded-full shadow-sm duration-300;
+  }
+  .questions-holder .q-txt-holder.expanded .expand-btn {
+    @apply -bottom-3 right-3;
+  }
+  .questions-holder .questions .expand-btn {
+    @apply absolute -bottom-3 right-5 bg-white bg-opacity-70 backdrop-blur-sm flex items-center gap-2 p-1 px-2 rounded-full shadow-sm duration-300;
+  }
+  .questions-holder .questions .expand-btn:hover {
+    transform: scale(1.07);
+  }
+  .questions-holder .questions .expand-btn svg {
+    @apply w-4 h-4;
+  }
+  .questions-holder .questions .q-txt code {
+    @apply bg-slate-50 rounded-md min-h-10 p-2;
+    overflow-y: hidden;
+  }
+  .questions-holder .questions .q-txt > * {
+    @apply px-2 sm:px-0;
+  }
+  .questions-holder .questions .q-txt > h1 {
+    @apply px-0;
+  }
+  .questions-holder .question .ans {
+    @apply bg-slate-50 mx-3 flex justify-between gap-2 p-2 items-center rounded-md overflow-hidden;
+  }
+  .questions-holder .question .ans.wrong {
+    @apply bg-yellow-50;
+  }
+  .questions-holder .question .ans.correct {
+    @apply bg-blue-50;
+  }
+  .questions-holder .question .ans .left {
+    @apply w-full flex items-start gap-2;
+  }
+  .questions-holder .question .ans .left .mark svg {
+    @apply mt-1 bg-white rounded-full;
+  }
+  .questions-holder .question .ans .left .ans-lab {
+    @apply pl-0;
+  }
+  .questions-holder .question .ans .right .number {
+    @apply text-xs bg-white bg-opacity-70 backdrop-blur-sm px-1 rounded-full shadow font-bold;
+  }
+  .questions-holder .question .more-info {
+    @apply flex self-end flex-wrap gap-2 sm:text-sm pb-2 text-xs duration-300;
+  }
+  .questions-holder .question .more-info > * {
+    @apply flex items-center justify-center gap-1 bg-slate-50 rounded-full p-1 min-w-7 shadow;
+  }
+  .questions-holder .question .more-info .info-svg svg {
+    @apply bg-white rounded-full;
+  }
+  .questions-holder .question .more-info .info-svg.correct {
+    @apply bg-blue-50;
+  }
+  .questions-holder .question .more-info .info-svg.wrong {
+    @apply bg-yellow-50;
+  }
+  .questions-holder .question .more-info .info-svg.skipped {
+    @apply bg-red-50;
+  }
+  .questions-holder .question .more-info .info {
+    @apply px-2;
+  }
+  
