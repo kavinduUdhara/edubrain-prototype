@@ -8,30 +8,33 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: "autoUpdate",
       manifest: {
-        name: "Your App Name",
-        short_name: "App",
-        description: "A description of your app",
-        start_url: "/",
-        display: "standalone",
-        background_color: "#ffffff",
-        theme_color: "#000000",
+        name: "Edubrain Prototype",
+        short_name: "Edubrain",
+        description: "Weather forecast information",
         icons: [
           {
-            src: "/icons/icon-192x192.png",
+            src: "/icons/main-logo.png",
+            sizes: "512x512",
+            type: "image/svg+xml",
+          },
+          {
+            src: "/icons/main-logo.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/icons/icon-512x512.png",
+            src: "/icons/main-logo.png",
             sizes: "512x512",
             type: "image/png",
           },
         ],
-      },
-      registerType: "autoUpdate", // Automatically update the service worker
-      workbox: {
-        cleanupOutdatedCaches: true, // Removes outdated caches during updates
+        start_url: "/dashboard",
+        background_color: "#FOFAFF",
+        theme_color: "#FOFAFF",
+        display: "standalone",
+        scope: "/",
       },
     }),
   ],
