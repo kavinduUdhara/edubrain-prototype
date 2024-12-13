@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "edubrain-pt",
     "source": ".",
     "ignore": [
       "firebase.json",
