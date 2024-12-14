@@ -6,14 +6,20 @@ import { RiGeminiFill } from "react-icons/ri";
 import { CiCircleInfo } from "react-icons/ci";
 import { GiPartyPopper } from "react-icons/gi";
 import { RiExternalLinkFill } from "react-icons/ri";
+import { FaUncharted } from "react-icons/fa6";
 import { LucideNewspaper, Settings } from "lucide-react";
 import { MdOutlineChatBubbleOutline } from "react-icons/md";
 import { auth } from "@/firebase";
 
+import UnitWeightChart from "./SpiderWebChart";
+import { UnitAvgMarksChart } from "./BarChart";
 import UnitsFlowChart from "@/components/UnitsOverviewTree";
+import { useNavigate } from "react-router-dom";
+import { PaperListPopUp } from "./PaperListPopUp";
 
 export default function Dashboard() {
   const user = auth.currentUser;
+  const navigate = useNavigate();
 
   return (
     <div className="page-holder">
@@ -21,12 +27,22 @@ export default function Dashboard() {
         <div className="def-holder top-holder">
           <div className="def-child top-menu">
             <div className="left">
-              <div className="logo-holder">
+              <button
+                onClick={() => {
+                  navigate("/");
+                }}
+                className="logo-holder"
+              >
                 <div className="logo-icon-holder">
                   <img src="/main-logo.svg" />
                 </div>
-                <h1>EduBrain <span><ImLab/></span></h1>
-              </div>
+                <h1>
+                  EduBrain{" "}
+                  <span>
+                    <ImLab />
+                  </span>
+                </h1>
+              </button>
             </div>
             <div className="right">
               <button className="profile-info-holder">
@@ -55,7 +71,7 @@ export default function Dashboard() {
         </div>
         <div className="bottom-holder">
           <div className=""></div>
-          <div className="def-child content">
+          <div className="def-child content gap-5">
             {/* <div className="ai-s-child">
               <h1 className="title">
                 {" "}
@@ -69,6 +85,15 @@ export default function Dashboard() {
               </div>
               <div className="sug-list"></div>
             </div> */}
+            <div className="overview-sec fetures-sec">
+              <h1 className="title">
+                <FaUncharted /> Numbers to wrap your head around
+              </h1>
+              <div className="flex flex-wrap gap-3">
+                <UnitWeightChart />
+                <UnitAvgMarksChart />
+              </div>
+            </div>
             <div className="fetures-sec">
               <h1 className="title">
                 <GiPartyPopper /> Fetrues on{" "}
@@ -86,11 +111,13 @@ export default function Dashboard() {
                     Students can practice exam questions and receive AI-powered
                     insights on areas needing improvement.
                   </p>
-                  <button>
-                    Practice Past Papers <RiExternalLinkFill />
-                  </button>
+                  <PaperListPopUp>
+                    <button>
+                      Practice Past Papers <RiExternalLinkFill />
+                    </button>
+                  </PaperListPopUp>
                 </div>
-                <div className="f-item">
+                {/* <div className="f-item">
                   <h1>
                     <MdOutlineChatBubbleOutline /> AI-Enhanced Forum
                   </h1>
@@ -102,7 +129,7 @@ export default function Dashboard() {
                   <button>
                     Ask a questions <RiExternalLinkFill />
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

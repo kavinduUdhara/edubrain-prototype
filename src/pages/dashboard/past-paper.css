@@ -1,0 +1,130 @@
+
+.paper-list-holder{
+    @apply mt-5 max-w-xl;
+}
+.paper-list{
+    @apply flex flex-col rounded-md gap-2;
+}
+.paper-list .paper-holder{
+    @apply bg-slate-100 p-0 rounded-lg duration-300;
+}
+.paper-list .paper-holder.active{
+    @apply p-1 sm:p-2 my-3 first:mt-0 last:mb-0;
+}
+.paper-list .paper{
+    @apply flex justify-between items-center rounded-lg bg-slate-50 p-2 px-3 gap-2 cursor-pointer w-full duration-300;
+}
+.paper-list .paper.active{
+    @apply bg-white;
+}
+.paper-list .paper button{
+    @apply w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-slate-200 rounded-full hover:bg-slate-300 duration-300;
+}
+.paper-list .paper button.active{
+    transform: rotate(180deg);
+}
+.paper-list .paper .paper-info{
+    @apply grid gap-x-1;
+    grid-template-columns: 20px auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "pp_icon pp_title pp_title"
+    "pp_icon pp_id pp_year";
+}
+.paper-list .paper .paper-info .paper-icon{
+    grid-area: pp_icon;
+    @apply flex items-start justify-start mt-2 w-4 h-4;
+}
+.paper-list .paper .paper-info .paper-title{
+    grid-area: pp_title;
+    @apply text-base sm:text-lg duration-300 left-0 text-left;
+}
+.paper-list .paper .paper-info .paper-id{
+    grid-area: pp_id;
+    @apply text-xs sm:text-sm bg-slate-200 px-2 rounded-full duration-300;
+}
+.paper-list .paper .paper-info .paper-year{
+    grid-area: pp_year;
+    @apply text-xs sm:text-sm bg-blue-100 px-2 rounded-full duration-300;
+}
+.paper-list .paper-holder .more-info{
+    @apply p-1 opacity-0 h-0 duration-300;
+    display: none;
+}
+.paper-list .paper-holder .more-info.active{
+    @apply opacity-100 h-auto;
+    display: block;
+}
+.paper-list .paper-holder .more-info .no-history{
+    @apply py-3 sm:text-base text-sm;
+}
+.paper-list .paper-holder .more-info .no-history .profile{
+    @apply inline-flex gap-2;
+}
+.paper-list .paper-holder .more-info .no-history .profile img{
+    @apply w-10 h-10 rounded-full bg-white shadow-md;
+}
+.paper-list .paper-holder .more-info .no-history .profile button{
+    @apply bg-slate-700 text-white p-1 px-2 rounded-md hover:bg-slate-600 duration-300;
+}
+.paper-list .paper-holder .more-info .attempts{
+    @apply flex flex-col gap-2 relative my-2;
+}
+.paper-list .paper-holder .more-info .attempts .dot{
+    @apply w-1 h-1 bg-black rounded-full;
+}
+.paper-list .paper-holder .more-info .attempts .vertical-line{
+    @apply absolute h-full left-3 sm:left-4 z-10  duration-300;
+    border-left: 1px dashed #454545;
+}
+.paper-list .paper-holder .more-info .attempts .count{
+    @apply flex gap-1 items-center z-20;
+}
+.paper-list .paper-holder .more-info .attempts .count .count-val{
+    @apply bg-white w-7 h-7 text-sm sm:text-base sm:w-8 sm:h-8 rounded-full shadow-md flex items-center justify-center font-bold duration-300;
+}
+.paper-list .paper-holder .more-info .attempts .count .count-val p{
+    @apply flex items-center justify-center w-full h-full;
+}
+.paper-list .paper-holder .more-info .attempts .count .count-title{
+}
+.paper-list .paper-holder .more-info .attempts .attempt{
+    @apply flex gap-1 text-xs sm:text-sm z-20 duration-300;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .count-val{
+    @apply w-7 min-w-7 sm:w-8 sm:min-w-8 justify-center flex duration-300;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .count-val p{
+    @apply w-5 h-5 sm:w-6 sm:h-6 bg-white shadow-md rounded-full flex items-center justify-center text-sm duration-300;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .more-data{
+    @apply inline-flex flex-wrap gap-1 items-center;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .more-data .attempt-score{
+    @apply flex items-center gap-1;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .more-data .attempt-score .progress-bar{
+    @apply w-0 sm:w-20 h-2 rounded-full shadow-sm bg-white flex overflow-hidden duration-300;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .more-data .attempt-score .progress{
+    @apply bg-blue-200 rounded-full shadow-sm;
+    background-color: #87a6be;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .more-data .attempt-actions{
+    @apply flex flex-wrap gap-1 items-center;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .more-data .attempt-actions button{
+    @apply flex gap-1 items-center bg-white rounded-full px-2;
+}
+.paper-list .paper-holder .more-info .attempts .attempt .more-data .attempt-actions .delete{
+    @apply px-1;
+}
+.paper-list .paper-holder .more-info .attempts .view-more{
+    @apply flex gap-2 items-center z-20 text-xs sm:text-sm cursor-pointer duration-300;
+}
+.paper-list .paper-holder .more-info .attempts .view-more .left-side{
+    @apply w-7 min-w-7 sm:w-8 sm:min-w-8 flex justify-center;
+}
+.paper-list .paper-holder .more-info .attempts .view-more .left-side button{
+    @apply w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center shadow-md bg-white rounded-full hover:shadow-lg duration-300;
+}
