@@ -53,11 +53,11 @@ export default function Home() {
       <div className="def-holder main-banner-holder">
         <div className="planet-track-holder">
           <div className="planet-track">
-            <img className="planet" src={planetImg} />
+            <img className="planet" src={planetImg} alt="planet-img" loading="lazy"/>
           </div>
         </div>
         <div className="def-child main-banner">
-          <img className="spaceship" src={spaceshipImg} />
+          <img className="spaceship" src={spaceshipImg} alt="spaceship-img" loading="lazy"/>
           {!user && (
             <button className="sign-in-btn" onClick={handleGoogleLogin}>
               <FcGoogle />
@@ -66,7 +66,7 @@ export default function Home() {
           )}
           {user && (
             <button className="redirect-btn max-w-[150px]" onClick={handelGoToDashboard}>
-              <img src={user.photoURL} />
+              <img src={user.photoURL} alt="user profile" loading="lazy"/>
               <div className="info">
                 <div className="name">{user.displayName}</div>
                 <p>Go to Dashboard</p>
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="bottom">
             <div className="left">
               <div className="logo">
-                <img src={Logo} alt="EduBrain" />
+                <img src={Logo} alt="EduBrain" loading="lazy"/>
               </div>
             </div>
             <div className="right">
@@ -91,16 +91,17 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <img src={bannerImg} alt="banner-image" className="banner-img" />
+          <img src={bannerImg} alt="banner-image" className="banner-img" loading="lazy"/>
         </div>
       </div>
       <div className="def-holder about-and-num-holder">
         <div className="def-child about-and-num-child">
-          <img src={rockedImg} className="rocket-img" alt="image of a rocket" />
+          <img src={rockedImg} className="rocket-img" alt="image of a rocket" loading="lazy"/>
           <img
             src={astronautImg}
             className="astronut-img"
             alt="image of a astronaut"
+            loading="lazy"
           />
           <div className="def-section numbers">
             <div className="users-number-holder">
@@ -149,7 +150,7 @@ export default function Home() {
           </div>
           <div className="def-section about">
             <h2 className="title">
-              <img src={Logo} /> About EduBrain
+              <img src={Logo} alt="logo" loading="lazy"/> About EduBrain
             </h2>
             <p>
               EduBrain is a platform that empowers students to excel by
@@ -173,13 +174,14 @@ export default function Home() {
         </div>
       </div>
       <div className="def-holder problem-statement-holder">
-        <img className="planet-img-2" src={planetImg} alt="planet" />
+        <img className="planet-img-2" src={planetImg} alt="planet" loading="lazy"/>
         <div className="def-child problem-statement">
           <div className="def-section statement">
             <div className="max-w-md flex flex-col gap-3">
               <img
                 src={problemStatementImg}
                 alt="problem statement banner image"
+                loading="lazy"
               />
               <p>
                 Many students in Sri Lanka struggle to access personalized and
@@ -277,7 +279,7 @@ export default function Home() {
             )}
             {user && (
               <button className="redirect-btn max-w-[200px]" onClick={handelGoToDashboard}>
-                <img src={user.photoURL} alt="user profile" />
+                <img src={user.photoURL} alt="user profile" loading="lazy"/>
                 <div className="info">
                   <div className="name">{user.displayName}</div>
                   <p>Go to Dashboard</p>

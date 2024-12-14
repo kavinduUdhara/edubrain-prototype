@@ -1,3 +1,4 @@
+
 .analytics-holder {
     @apply sm:px-2 px-0 flex flex-col gap-5 duration-300;
   }
@@ -184,12 +185,12 @@
     @apply flex flex-col;
   }
   .questions-filter-holder {
-    @apply flex flex-col duration-300 max-h-12 overflow-hidden sticky -top-5 z-30 bg-white bg-opacity-50 backdrop-blur-sm rounded-md p-1;
+    @apply flex flex-col duration-300 max-h-12 overflow-hidden sticky top-0 z-30 bg-white bg-opacity-50 backdrop-blur-sm rounded-md p-1;
     transition: margin-bottom 0ms;
   }
   
   .questions-filter-holder.active {
-    @apply p-1 md:p-2 rounded-xl bg-slate-100 max-h-96 -top-4 shadow mb-2;
+    @apply p-1 md:p-2 rounded-xl bg-slate-100 max-h-96 top-1 shadow mb-2;
   }
   .questions-filter-holder .top-title {
     @apply p-1 flex justify-between items-center rounded-lg;
@@ -279,10 +280,10 @@
     @apply bg-white p-1 px-2 rounded-md shadow-sm;
   }
   .questions-holder .bottom-filters {
-    @apply sticky -bottom-3 z-20 flex items-center py-2 justify-normal sm:justify-between pl-1 text-sm;
+    @apply sticky bottom-0 z-20 flex items-center py-2 justify-normal sm:justify-between pl-1 text-sm;
   }
   .questions-holder .bottom-filters .filter-by-ans{
-    @apply gap-1 sm:max-w-80 sm:max-h-72 opacity-0 sm:opacity-100 max-w-0 max-h-0 w-full overflow-hidden duration-300;
+    @apply gap-1 sm:max-w-[17rem] sm:max-h-72 opacity-0 sm:opacity-100 max-w-0 max-h-0 w-full overflow-hidden duration-300;
   }
   .questions-holder .applied-filter {
     @apply text-sm inline-flex gap-2 flex-wrap items-center px-2 bg-white p-1 rounded-full bg-opacity-70 backdrop-blur-sm;

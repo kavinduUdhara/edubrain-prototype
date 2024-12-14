@@ -32,6 +32,8 @@ import "./register.css";
 import ErrorWithOllie from "@/components/ErrorWithOllie/ErrorWithOllie";
 import { useNavigate } from "react-router-dom";
 
+import floatingLearningObjects from "../../../assets/img/objects/floating-objects.png"
+
 export default function RegisterPage() {
   const navigate = useNavigate();
 
@@ -319,7 +321,7 @@ export default function RegisterPage() {
               <div className="email">{user.email}</div>
             </div>
             <img
-              src="/img/objects/learning-elements/floating-objects.png"
+              src={floatingLearningObjects}
               alt="floating learning objects"
               className="img-f-o"
             />

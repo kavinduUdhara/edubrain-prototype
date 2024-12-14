@@ -73,8 +73,9 @@ import ErrorWithOllie from "@/components/ErrorWithOllie/ErrorWithOllie";
 import { CiBookmark, CiCalendar, CiCircleQuestion } from "react-icons/ci";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-export default function AttemptSummaryPage() {
+import PageHolder from "@/layout/PageHolder";
 
+export default function AttemptSummaryPage() {
   const attemptId = useParams().att_id;
 
   const filterHolderRef = useRef(null);
@@ -127,7 +128,6 @@ export default function AttemptSummaryPage() {
   }, [questionsData]);
 
   //get the data from the database
-
 
   useEffect(() => {
     async function getData() {
@@ -374,6 +374,7 @@ export default function AttemptSummaryPage() {
 
   if (loading.basicInfo || errors.basicInfo == 0 || attemptId === null) {
     return (
+      <PageHolder maxW={7}>
       <div className="def-holder">
         <div className="def-child analytics-holder">
           <div className="main-info">
@@ -425,6 +426,7 @@ export default function AttemptSummaryPage() {
           </div>
         </div>
       </div>
+      </PageHolder>
     );
   }
 
@@ -452,162 +454,171 @@ export default function AttemptSummaryPage() {
   }
 
   return (
-    <div className="def-holder">
-      <div className="def-child analytics-holder">
-        <div className="main-info">
-          <div className="title-info">
-            <h1>{attemptSummaryData.pp_title}</h1>
-            <div className="other-info">
-              <div className="pp-id">{attemptSummaryData.pp_sub_id}</div>
-              <div className="yr">
-                {attemptSummaryData.pp_id.match(/\d{4}/)[0]}
+    <PageHolder maxW={7}>
+      <div className="def-holder p-3 px-5">
+        <div className="def-child analytics-holder">
+          <div className="main-info">
+            <div className="title-info">
+              <h1>{attemptSummaryData.pp_title}</h1>
+              <div className="other-info">
+                <div className="pp-id">{attemptSummaryData.pp_sub_id}</div>
+                <div className="yr">
+                  {attemptSummaryData.pp_id.match(/\d{4}/)[0]}
+                </div>
+              </div>
+            </div>
+            <div className="select-attempt">
+              <div className="selected-attempt">
+                <GoHash /> {attemptId}
+              </div>
+              <div className="date">
+                <CiCalendar />
+                {convertTimestampToDate(attemptSummaryData.timestamp.seconds)}
               </div>
             </div>
           </div>
-          <div className="select-attempt">
-            <div className="selected-attempt">
-              <GoHash /> {attemptId}
-            </div>
-            <div className="date">
-              <CiCalendar />
-              {convertTimestampToDate(attemptSummaryData.timestamp.seconds)}
-            </div>
-          </div>
-        </div>
-        <div className="overall-progress">
-          <div className="flex gap-2">
-            <div className="main-progress">
-              <div className="progress-title">
-                <TbCirclePercentage /> Total Marks
+          <div className="overall-progress">
+            <div className="flex gap-2">
+              <div className="main-progress">
+                <div className="progress-title">
+                  <TbCirclePercentage /> Total Marks
+                </div>
+                <div className="data">{SummarizedNumbers.correct * 2}%</div>
               </div>
-              <div className="data">{SummarizedNumbers.correct * 2}%</div>
-            </div>
-            <div className="progress">
-              <div className="progress-title">
-                <IoTimeOutline /> Time Spent
-              </div>
-              <div className="data">
-                {formatTime(SummarizedNumbers.totalTimeSpent)}
+              <div className="progress">
+                <div className="progress-title">
+                  <IoTimeOutline /> Time Spent
+                </div>
+                <div className="data">
+                  {formatTime(SummarizedNumbers.totalTimeSpent)}
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            <div className="data-with-charts1">
-              <div className="chart1">
-                <div className="chart-title">Summary</div>
-                <div className="chart-data-ver">
-                  <div className="ver-bar">
-                    <div className="title">
-                      <RxCheckCircled /> Correct
+            <div>
+              <div className="data-with-charts1">
+                <div className="chart1">
+                  <div className="chart-title">Summary</div>
+                  <div className="chart-data-ver">
+                    <div className="ver-bar">
+                      <div className="title">
+                        <RxCheckCircled /> Correct
+                      </div>
+                      <div className="data">
+                        {SummarizedNumbers.correct * 2}%
+                      </div>
+                      <div
+                        className="bar correct"
+                        style={{ width: `${SummarizedNumbers.correct * 2}%` }}
+                      ></div>
                     </div>
-                    <div className="data">{SummarizedNumbers.correct * 2}%</div>
-                    <div
-                      className="bar correct"
-                      style={{ width: `${SummarizedNumbers.correct * 2}%` }}
-                    ></div>
-                  </div>
-                  <div className="ver-bar">
-                    <div className="title">
-                      <RxCrossCircled /> Wrong
+                    <div className="ver-bar">
+                      <div className="title">
+                        <RxCrossCircled /> Wrong
+                      </div>
+                      <div className="data">
+                        {SummarizedNumbers.incorrect * 2}%
+                      </div>
+                      <div
+                        className="bar wrong"
+                        style={{ width: `${SummarizedNumbers.incorrect * 2}%` }}
+                      ></div>
                     </div>
-                    <div className="data">
-                      {SummarizedNumbers.incorrect * 2}%
+                    <div className="ver-bar">
+                      <div className="title">
+                        <RxMinusCircled /> Skipped
+                      </div>
+                      <div className="data">
+                        {SummarizedNumbers.unanswered * 2}%
+                      </div>
+                      <div
+                        className="bar skipped"
+                        style={{
+                          width: `${SummarizedNumbers.unanswered * 2}%`,
+                        }}
+                      ></div>
                     </div>
-                    <div
-                      className="bar wrong"
-                      style={{ width: `${SummarizedNumbers.incorrect * 2}%` }}
-                    ></div>
-                  </div>
-                  <div className="ver-bar">
-                    <div className="title">
-                      <RxMinusCircled /> Skipped
-                    </div>
-                    <div className="data">
-                      {SummarizedNumbers.unanswered * 2}%
-                    </div>
-                    <div
-                      className="bar skipped"
-                      style={{
-                        width: `${SummarizedNumbers.unanswered * 2}%`,
-                      }}
-                    ></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="data-with-charts">
-          <div className="chart-holder timespent">
-            <div className="chart-title">
-              <IoTimeOutline /> Time Spent in each question
-            </div>
-            <div className="scroll-chart-holder timespent">
-              <div className="scroll-chart">
-                <Chart
-                  className="chart timespent"
-                  data={convertAttemptDataToChart(attemptData)}
-                ></Chart>
+          <div className="data-with-charts">
+            <div className="chart-holder timespent">
+              <div className="chart-title">
+                <IoTimeOutline /> Time Spent in each question
+              </div>
+              <div className="scroll-chart-holder timespent">
+                <div className="scroll-chart">
+                  <Chart
+                    className="chart timespent"
+                    data={convertAttemptDataToChart(attemptData)}
+                  ></Chart>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="chart-holder chart2">
-            <div className="chart-title">
-              <RiPieChartLine className="mr-1" />
-              Unit Weightage
+            <div className="chart-holder chart2">
+              <div className="chart-title">
+                <RiPieChartLine className="mr-1" />
+                Unit Weightage
+              </div>
+              {questionsData && unitData ? (
+                <PieChartWeightUnit
+                  chartData={convertQuestionIntoPieChart(
+                    questionsData,
+                    unitData
+                  )}
+                />
+              ) : (
+                <div className="def-loading-box bg-white h-80 max-w-full w-96 mt-0"></div>
+              )}
             </div>
-            {questionsData && unitData ? (
-              <PieChartWeightUnit
-                chartData={convertQuestionIntoPieChart(questionsData, unitData)}
-              />
-            ) : (
-              <div className="def-loading-box bg-white h-80 max-w-full w-96 mt-0"></div>
-            )}
-          </div>
-          <div className="chart-holder chart2">
-            <div className="chart-title">
-              <BsHexagon className="mr-1" />
-              Performance in each unit
+            <div className="chart-holder chart2">
+              <div className="chart-title">
+                <BsHexagon className="mr-1" />
+                Performance in each unit
+              </div>
+              {questionsData && unitData ? (
+                <SpiderChart
+                  chartData={convertQuestionIntoPieChart(
+                    questionsData,
+                    unitData
+                  )}
+                  attemptId={attemptId}
+                />
+              ) : (
+                <div className="def-loading-box bg-white h-80 max-w-full w-96 mt-0"></div>
+              )}
+              <div id="before-questions-div"></div>
             </div>
-            {questionsData && unitData ? (
-              <SpiderChart
-                chartData={convertQuestionIntoPieChart(questionsData, unitData)}
-                attemptId={attemptId}
-              />
-            ) : (
-              <div className="def-loading-box bg-white h-80 max-w-full w-96 mt-0"></div>
-            )}
-            <div id="before-questions-div"></div>
           </div>
-        </div>
-        <div className="questions-holder" id="questions">
-          <div
-            className={"questions-filter-holder"}
-            id="questions-filter-holder"
-            ref={filterHolderRef}
-          >
-            <div className="top-title">
-              <div className="title">Questions</div>
-              <div className="other-opt">
-                {loading.questionsData ? (
-                  <div className="flex items-center gap-1 bg-blue-50 p-1 px-2 rounded-full">
-                    <AiOutlineLoading3Quarters className="def-loading-svg" />{" "}
-                    Loading
-                  </div>
-                ) : (
-                  <>
-                    <div className="order-by">
-                      <button
-                        className="sort-by-btn"
-                        onClick={toggleSortByOrder}
-                      >
-                        {questionFilter.asd ? (
-                          <BsSortDown />
-                        ) : (
-                          <BsSortDownAlt />
-                        )}
-                      </button>
-                      {/* <button
+          <div className="questions-holder" id="questions">
+            <div
+              className={"questions-filter-holder"}
+              id="questions-filter-holder"
+              ref={filterHolderRef}
+            >
+              <div className="top-title">
+                <div className="title">Questions</div>
+                <div className="other-opt">
+                  {loading.questionsData ? (
+                    <div className="flex items-center gap-1 bg-blue-50 p-1 px-2 rounded-full">
+                      <AiOutlineLoading3Quarters className="def-loading-svg" />{" "}
+                      Loading
+                    </div>
+                  ) : (
+                    <>
+                      <div className="order-by">
+                        <button
+                          className="sort-by-btn"
+                          onClick={toggleSortByOrder}
+                        >
+                          {questionFilter.asd ? (
+                            <BsSortDown />
+                          ) : (
+                            <BsSortDownAlt />
+                          )}
+                        </button>
+                        {/* <button
                         className="order-by-btn"
                         onClick={openSortByPopUp}
                       >
@@ -618,259 +629,265 @@ export default function AttemptSummaryPage() {
                         {questionFilter?.qSortByInfo?.[questionFilter?.qSortBy]
                           ?.title || "Question No"}
                       </button> */}
-                      <PopUpOrderBySelect
-                        options={convertQSortByIntoPopUp(
-                          questionFilter.qSortByInfo
-                        )}
-                        onPositionChange={handleSortBy}
-                      />
-                    </div>
-                    <button
-                      className="filter-toggle-btn"
-                      onClick={() => {
-                        setQuestionFilter((prev) => ({
-                          ...prev,
-                          opened: !prev.opened,
-                        }));
-                      }}
-                    >
-                      <LuListFilter />
-                    </button>
-                  </>
-                )}
-              </div>
-            </div>
-            {!loading.questionsData && (
-              <div className="more-opt">
-                <div className="filter-opts">
-                  <div className="search-bar">
-                    <IoSearch />
-                    <input
-                      type="text"
-                      value={questionFilter.keyword}
-                      placeholder="search question by title"
-                      onChange={onChangeKeyword}
-                    />
-                  </div>
-                  <div className="filter-btns">
-                    <div className="filter-by-ans">
-                      <p>Ans:</p>
+                        <PopUpOrderBySelect
+                          options={convertQSortByIntoPopUp(
+                            questionFilter.qSortByInfo
+                          )}
+                          onPositionChange={handleSortBy}
+                        />
+                      </div>
                       <button
-                        className={`${
-                          questionFilter.answer && questionFilter.answer
-                            ? "active"
-                            : ""
-                        }`}
-                        onClick={() => handleFilterByAns(true)}
+                        className="filter-toggle-btn"
+                        onClick={() => {
+                          setQuestionFilter((prev) => ({
+                            ...prev,
+                            opened: !prev.opened,
+                          }));
+                        }}
                       >
-                        <RxCheckCircled /> Correct ({SummarizedNumbers.correct})
+                        <LuListFilter />
                       </button>
-                      <button
-                        className={`${
-                          questionFilter.answer != null &&
-                          !questionFilter.answer
-                            ? "active"
-                            : ""
-                        }`}
-                        onClick={() => handleFilterByAns(false)}
-                      >
-                        <RxCrossCircled /> Wrong ({SummarizedNumbers.incorrect})
-                      </button>
-                      <button
-                        className={`no-banner ${
-                          /*questionFilter.answer === null ? "active" : ""*/ ""
-                        }`}
-                        onClick={() => handleFilterByAns(null)}
-                      >
-                        <RxMinusCircled />
-                      </button>
-                    </div>
-                    <div className="select-unit">
-                      <p>Unit:</p>
-                      <PopUpUnitSelect
-                        frameworks={convertUnitsIntoPopUp(unitData)}
-                        onUnitSelect={handleFilterByUnit}
-                      />
-                    </div>
-                  </div>
+                    </>
+                  )}
                 </div>
               </div>
-            )}
-          </div>
-          <div className="questions" id="questions">
-            {questionFilter.unit && (
-              <div className="summary">
-                <div className="title">
-                  <RiBardFill /> Summary of Unit{" "}
-                  <span className="unit">
-                    <span className="unit-id">{questionFilter.unit}</span>{" "}
-                    {unitData[questionFilter.unit]?.shrt}
-                  </span>
-                </div>
-                {loading.subUnitData ? (
-                  <div className="sub-units">
-                    <div className="line"></div>
-                    <div className="sub-unit">
-                      <div className="sub-unit-id def-loading-box ">0_0</div>
-                      <div className="more-info">
-                        <div className="sub-unit-name def-loading-box bg-white h-5 w-36"></div>
-                        <div className="info">
-                          <div className="card def-loading-box h-5 w-10"></div>
-                          <div className="card def-loading-box h-5 w-10"></div>
-                        </div>
+              {!loading.questionsData && (
+                <div className="more-opt">
+                  <div className="filter-opts">
+                    <div className="search-bar">
+                      <IoSearch />
+                      <input
+                        type="text"
+                        value={questionFilter.keyword}
+                        placeholder="search question by title"
+                        onChange={onChangeKeyword}
+                      />
+                    </div>
+                    <div className="filter-btns">
+                      <div className="filter-by-ans">
+                        <p>Ans:</p>
+                        <button
+                          className={`${
+                            questionFilter.answer && questionFilter.answer
+                              ? "active"
+                              : ""
+                          }`}
+                          onClick={() => handleFilterByAns(true)}
+                        >
+                          <RxCheckCircled /> Correct (
+                          {SummarizedNumbers.correct})
+                        </button>
+                        <button
+                          className={`${
+                            questionFilter.answer != null &&
+                            !questionFilter.answer
+                              ? "active"
+                              : ""
+                          }`}
+                          onClick={() => handleFilterByAns(false)}
+                        >
+                          <RxCrossCircled /> Wrong (
+                          {SummarizedNumbers.incorrect})
+                        </button>
+                        <button
+                          className={`no-banner ${
+                            /*questionFilter.answer === null ? "active" : ""*/ ""
+                          }`}
+                          onClick={() => handleFilterByAns(null)}
+                        >
+                          <RxMinusCircled />
+                        </button>
+                      </div>
+                      <div className="select-unit">
+                        <p>Unit:</p>
+                        <PopUpUnitSelect
+                          frameworks={convertUnitsIntoPopUp(unitData)}
+                          onUnitSelect={handleFilterByUnit}
+                        />
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <>
+                </div>
+              )}
+            </div>
+            <div className="questions" id="questions">
+              {questionFilter.unit && (
+                <div className="summary">
+                  <div className="title">
+                    <RiBardFill /> Summary of Unit{" "}
+                    <span className="unit">
+                      <span className="unit-id">{questionFilter.unit}</span>{" "}
+                      {unitData[questionFilter.unit]?.shrt}
+                    </span>
+                  </div>
+                  {loading.subUnitData ? (
                     <div className="sub-units">
                       <div className="line"></div>
-                      {currentSubUnitData &&
-                        currentSubUnitData.map((sub_unit) => (
-                          <div className="sub-unit" key={sub_unit.sub_id}>
-                            <div className="sub-unit-id">{sub_unit.sub_id}</div>
-                            <div className="more-info">
-                              <div className="sub-unit-name">
-                                {capitalizeFirstLetter(
-                                  subUnitData[sub_unit.sub_id]?.sub_unit_title
-                                ) || "Unknown"}
-                              </div>
-                              <div className="info">
-                                <div className="card">
-                                  <RxQuestionMarkCircled /> {sub_unit.total}/
-                                  {currentSubUnitDataSummary &&
-                                    currentSubUnitDataSummary.totalSum}
-                                </div>
-                                <div className="card">
-                                  <FiClock />
-                                  {formatTime(sub_unit.avg_duration)}
-                                </div>
-                                {sub_unit.correct > 0 && (
-                                  <div className="card correct">
-                                    <RxCheckCircled />
-                                    {sub_unit.correct}
-                                  </div>
-                                )}
-                                {sub_unit.wrong > 0 && (
-                                  <div className="card wrong">
-                                    <RxCrossCircled />
-                                    {sub_unit.wrong}
-                                  </div>
-                                )}
-                                {sub_unit.skipped > 0 && (
-                                  <div className="card skip">
-                                    <RxMinusCircled />
-                                    {sub_unit.skipped}
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                    {currentSubUnitDataSummary && (
-                      <div className="more-summary">
-                        <div className="chart2">
-                          <div className="bar">
-                            <div className="top">
-                              <div className="unit-data">
-                                <div className="unit-no">
-                                  {questionFilter.unit}
-                                </div>
-                                <div className="unit-title">
-                                  {unitData[questionFilter.unit]?.shrt}
-                                </div>
-                              </div>
-                              <div className="achievement">
-                                {currentSubUnitDataSummary.correctPer}%
-                              </div>
-                            </div>
-                            <div className="bottom">
-                              <div className="q-asked-bar">
-                                <div
-                                  className="q-asked-fill"
-                                  style={{
-                                    width: `${currentSubUnitDataSummary.totalPer}%`,
-                                  }}
-                                ></div>
-                              </div>
-                              <div className="q-asked">
-                                {currentSubUnitDataSummary.totalSum}/50
-                              </div>
-                            </div>
-                            <div
-                              className="progress-bar"
-                              style={{
-                                width: `${currentSubUnitDataSummary.correctPer}%`,
-                              }}
-                            ></div>
+                      <div className="sub-unit">
+                        <div className="sub-unit-id def-loading-box ">0_0</div>
+                        <div className="more-info">
+                          <div className="sub-unit-name def-loading-box bg-white h-5 w-36"></div>
+                          <div className="info">
+                            <div className="card def-loading-box h-5 w-10"></div>
+                            <div className="card def-loading-box h-5 w-10"></div>
                           </div>
                         </div>
-                        <div className="text-more-summary">
-                          <div className="card">
-                            <RxQuestionMarkCircled />{" "}
-                            {currentSubUnitDataSummary.totalSum}
-                            <span className="out-of">
-                              /{questionsData.length} (
-                              {currentSubUnitDataSummary.totalPer}%)
-                            </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="sub-units">
+                        <div className="line"></div>
+                        {currentSubUnitData &&
+                          currentSubUnitData.map((sub_unit) => (
+                            <div className="sub-unit" key={sub_unit.sub_id}>
+                              <div className="sub-unit-id">
+                                {sub_unit.sub_id}
+                              </div>
+                              <div className="more-info">
+                                <div className="sub-unit-name">
+                                  {capitalizeFirstLetter(
+                                    subUnitData[sub_unit.sub_id]?.sub_unit_title
+                                  ) || "Unknown"}
+                                </div>
+                                <div className="info">
+                                  <div className="card">
+                                    <RxQuestionMarkCircled /> {sub_unit.total}/
+                                    {currentSubUnitDataSummary &&
+                                      currentSubUnitDataSummary.totalSum}
+                                  </div>
+                                  <div className="card">
+                                    <FiClock />
+                                    {formatTime(sub_unit.avg_duration)}
+                                  </div>
+                                  {sub_unit.correct > 0 && (
+                                    <div className="card correct">
+                                      <RxCheckCircled />
+                                      {sub_unit.correct}
+                                    </div>
+                                  )}
+                                  {sub_unit.wrong > 0 && (
+                                    <div className="card wrong">
+                                      <RxCrossCircled />
+                                      {sub_unit.wrong}
+                                    </div>
+                                  )}
+                                  {sub_unit.skipped > 0 && (
+                                    <div className="card skip">
+                                      <RxMinusCircled />
+                                      {sub_unit.skipped}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                      {currentSubUnitDataSummary && (
+                        <div className="more-summary">
+                          <div className="chart2">
+                            <div className="bar">
+                              <div className="top">
+                                <div className="unit-data">
+                                  <div className="unit-no">
+                                    {questionFilter.unit}
+                                  </div>
+                                  <div className="unit-title">
+                                    {unitData[questionFilter.unit]?.shrt}
+                                  </div>
+                                </div>
+                                <div className="achievement">
+                                  {currentSubUnitDataSummary.correctPer}%
+                                </div>
+                              </div>
+                              <div className="bottom">
+                                <div className="q-asked-bar">
+                                  <div
+                                    className="q-asked-fill"
+                                    style={{
+                                      width: `${currentSubUnitDataSummary.totalPer}%`,
+                                    }}
+                                  ></div>
+                                </div>
+                                <div className="q-asked">
+                                  {currentSubUnitDataSummary.totalSum}/50
+                                </div>
+                              </div>
+                              <div
+                                className="progress-bar"
+                                style={{
+                                  width: `${currentSubUnitDataSummary.correctPer}%`,
+                                }}
+                              ></div>
+                            </div>
                           </div>
-                          <div className="card">
-                            <FiClock />{" "}
-                            {formatTime(currentSubUnitDataSummary.avgDuration)}
-                          </div>
-                          <div className="card correct">
-                            <RxCheckCircled />{" "}
-                            {currentSubUnitDataSummary.correctSum}{" "}
-                            <span className="out-of">
-                              /{currentSubUnitDataSummary.totalSum} (
-                              {currentSubUnitDataSummary.correctPer})
-                            </span>
-                          </div>
-                          <div className="card wrong">
-                            <RxCrossCircled />{" "}
-                            {currentSubUnitDataSummary.wrongSum}
-                            <span className="out-of">
-                              /{currentSubUnitDataSummary.totalSum} (
+                          <div className="text-more-summary">
+                            <div className="card">
+                              <RxQuestionMarkCircled />{" "}
+                              {currentSubUnitDataSummary.totalSum}
+                              <span className="out-of">
+                                /{questionsData.length} (
+                                {currentSubUnitDataSummary.totalPer}%)
+                              </span>
+                            </div>
+                            <div className="card">
+                              <FiClock />{" "}
+                              {formatTime(
+                                currentSubUnitDataSummary.avgDuration
+                              )}
+                            </div>
+                            <div className="card correct">
+                              <RxCheckCircled />{" "}
+                              {currentSubUnitDataSummary.correctSum}{" "}
+                              <span className="out-of">
+                                /{currentSubUnitDataSummary.totalSum} (
+                                {currentSubUnitDataSummary.correctPer})
+                              </span>
+                            </div>
+                            <div className="card wrong">
+                              <RxCrossCircled />{" "}
+                              {currentSubUnitDataSummary.wrongSum}
+                              <span className="out-of">
+                                /{currentSubUnitDataSummary.totalSum} (
+                                {Math.round(
+                                  (currentSubUnitDataSummary.wrongSum /
+                                    currentSubUnitDataSummary.totalSum) *
+                                    100
+                                )}
+                                %)
+                              </span>
+                            </div>
+                            <div className="card">
+                              <RxMinusCircled />{" "}
+                              {currentSubUnitDataSummary.skippedSum}/
+                              {currentSubUnitDataSummary.totalSum} (
                               {Math.round(
-                                (currentSubUnitDataSummary.wrongSum /
+                                (currentSubUnitDataSummary.skippedSum /
                                   currentSubUnitDataSummary.totalSum) *
                                   100
                               )}
                               %)
-                            </span>
-                          </div>
-                          <div className="card">
-                            <RxMinusCircled />{" "}
-                            {currentSubUnitDataSummary.skippedSum}/
-                            {currentSubUnitDataSummary.totalSum} (
-                            {Math.round(
-                              (currentSubUnitDataSummary.skippedSum /
-                                currentSubUnitDataSummary.totalSum) *
-                                100
-                            )}
-                            %)
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            )}
-            {!loading.questionsData ? (
-              filteredQuestionsData?.length > 0 ? (
-                filteredQuestionsData.map((question, index) => (
-                  <div className="question" key={question.q_id}>
-                    {/* Question number */}
-                    <div className="q-no">{question.q_id.slice(-2)}</div>
+                      )}
+                    </>
+                  )}
+                </div>
+              )}
+              {!loading.questionsData ? (
+                filteredQuestionsData?.length > 0 ? (
+                  filteredQuestionsData.map((question, index) => (
+                    <div className="question" key={question.q_id}>
+                      {/* Question number */}
+                      <div className="q-no">{question.q_id.slice(-2)}</div>
 
-                    {/* Question text */}
-                    <div className="q-more-info">
-                      <QTitle question={question} />
+                      {/* Question text */}
+                      <div className="q-more-info">
+                        <QTitle question={question} />
 
-                      {/* Answers */}
-                      {/*<ol>
+                        {/* Answers */}
+                        {/*<ol>
                         <li>{parseHtml(String(question.ans1))}</li>
                         <li>{parseHtml(String(question.ans2))}</li>
                         <li>{parseHtml(String(question.ans3))}</li>
@@ -878,183 +895,188 @@ export default function AttemptSummaryPage() {
                         <li>{parseHtml(String(question.ans5))}</li>
                       </ol>*/}
 
-                      {/* Correct Answer */}
-                      {Array.isArray(question.ans_no) ? (
-                        question.ans_no.map((ansIndex) => (
+                        {/* Correct Answer */}
+                        {Array.isArray(question.ans_no) ? (
+                          question.ans_no.map((ansIndex) => (
+                            <div className="ans correct">
+                              <div className="left">
+                                <div className="mark">
+                                  <RxCheckCircled />
+                                </div>
+                                <div className="ans-lab">
+                                  {parseHtml(
+                                    String(question[`ans${ansIndex}`])
+                                  )}
+                                </div>
+                              </div>
+                              <div className="right">
+                                <div className="number">80%</div>
+                              </div>
+                            </div>
+                          ))
+                        ) : (
                           <div className="ans correct">
                             <div className="left">
                               <div className="mark">
                                 <RxCheckCircled />
                               </div>
                               <div className="ans-lab">
-                                {parseHtml(String(question[`ans${ansIndex}`]))}
+                                {parseHtml(
+                                  String(question[`ans${question.ans_no}`])
+                                )}
                               </div>
                             </div>
                             <div className="right">
                               <div className="number">80%</div>
                             </div>
                           </div>
-                        ))
-                      ) : (
-                        <div className="ans correct">
-                          <div className="left">
-                            <div className="mark">
-                              <RxCheckCircled />
-                            </div>
-                            <div className="ans-lab">
-                              {parseHtml(
-                                String(question[`ans${question.ans_no}`])
-                              )}
-                            </div>
-                          </div>
-                          <div className="right">
-                            <div className="number">80%</div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Wrong Answer (example) */}
-                      {attemptData[question.q_id].ans != null &&
-                        !attemptData[question.q_id].correct && (
-                          <div className="ans wrong">
-                            <div className="left">
-                              <div className="mark">
-                                <RxCrossCircled />
-                              </div>
-                              <div className="ans-lab">
-                                {parseHtml(
-                                  String(
-                                    question[
-                                      `ans${attemptData[question.q_id].ans}`
-                                    ]
-                                  )
-                                )}
-                              </div>
-                            </div>
-                            <div className="right">
-                              <div className="number">10%</div>
-                            </div>
-                          </div>
                         )}
-                      <div className="more-info">
-                        <div
-                          className={`info-svg ${
-                            attemptData[question.q_id].ans != null
-                              ? attemptData[question.q_id].correct
-                                ? "correct"
-                                : "wrong"
-                              : "skipped"
-                          }`}
-                        >
-                          {attemptData[question.q_id].ans != null ? (
-                            attemptData[question.q_id].correct ? (
-                              <RxCheckCircled />
-                            ) : (
-                              <RxCrossCircled />
-                            )
-                          ) : (
-                            <RxMinusCircled />
+
+                        {/* Wrong Answer (example) */}
+                        {attemptData[question.q_id].ans != null &&
+                          !attemptData[question.q_id].correct && (
+                            <div className="ans wrong">
+                              <div className="left">
+                                <div className="mark">
+                                  <RxCrossCircled />
+                                </div>
+                                <div className="ans-lab">
+                                  {parseHtml(
+                                    String(
+                                      question[
+                                        `ans${attemptData[question.q_id].ans}`
+                                      ]
+                                    )
+                                  )}
+                                </div>
+                              </div>
+                              <div className="right">
+                                <div className="number">10%</div>
+                              </div>
+                            </div>
                           )}
-                        </div>
-                        <div className="info">
-                          <RxPerson /> 20
-                        </div>
-                        <div className="info">
-                          <FiClock />
-                          {formatTime(attemptData[question.q_id].duration)}
-                        </div>
-                        <div className="info">
-                          <BsJournalBookmark />
-                          {unitData[question.unit_id] &&
-                            unitData[question.unit_id].shrt}
-                        </div>
-                        <div className="info">
-                          <CiBookmark />
-                          <div>
-                            {" "}
-                            <span className="font-bold">
-                              {question.tag_id.split(".")[0]}.
-                              {question.tag_id.split(".")[1]}
-                            </span>
-                            .{question.tag_id.split(".")[2]}{" "}
+                        <div className="more-info">
+                          <div
+                            className={`info-svg ${
+                              attemptData[question.q_id].ans != null
+                                ? attemptData[question.q_id].correct
+                                  ? "correct"
+                                  : "wrong"
+                                : "skipped"
+                            }`}
+                          >
+                            {attemptData[question.q_id].ans != null ? (
+                              attemptData[question.q_id].correct ? (
+                                <RxCheckCircled />
+                              ) : (
+                                <RxCrossCircled />
+                              )
+                            ) : (
+                              <RxMinusCircled />
+                            )}
+                          </div>
+                          <div className="info">
+                            <RxPerson /> 20
+                          </div>
+                          <div className="info">
+                            <FiClock />
+                            {formatTime(attemptData[question.q_id].duration)}
+                          </div>
+                          <div className="info">
+                            <BsJournalBookmark />
+                            {unitData[question.unit_id] &&
+                              unitData[question.unit_id].shrt}
+                          </div>
+                          <div className="info">
+                            <CiBookmark />
+                            <div>
+                              {" "}
+                              <span className="font-bold">
+                                {question.tag_id.split(".")[0]}.
+                                {question.tag_id.split(".")[1]}
+                              </span>
+                              .{question.tag_id.split(".")[2]}{" "}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))
+                  ))
+                ) : (
+                  <ErrorWithOllie
+                    title="No Matches Found :("
+                    clearFilter={true}
+                    action={handleClearFilter}
+                  >
+                    Ollie couldn’t find the match you’re looking for. Try
+                    adjusting your filters or searching again.
+                  </ErrorWithOllie>
+                )
               ) : (
                 <ErrorWithOllie
-                  title="No Matches Found :("
-                  clearFilter={true}
-                  action={handleClearFilter}
+                  title="Hold tight!"
+                  loading={true}
+                  loadingTitle={`Downloading ${Math.round(
+                    Math.abs(
+                      (loading.questionDataPre /
+                        Object.keys(attemptData).length) *
+                        100
+                    )
+                  )}%`}
                 >
-                  Ollie couldn’t find the match you’re looking for. Try
-                  adjusting your filters or searching again.
+                  Ollie's downloading quections...
                 </ErrorWithOllie>
-              )
-            ) : (
-              <ErrorWithOllie
-                title="Hold tight!"
-                loading={true}
-                loadingTitle={`Downloading ${Math.round(
-                  Math.abs(
-                    (loading.questionDataPre /
-                      Object.keys(attemptData).length) *
-                      100
-                  )
-                )}%`}
-              >
-                Ollie's downloading quections...
-              </ErrorWithOllie>
-            )}
-          </div>
-          <div className="bottom-filters">
-            <div className="applied-filter">
-              {filteredQuestionsData?.length > 0 &&
-                (questionFilter.keyword ||
-                  questionFilter.answer != null ||
-                  questionFilter.unit) && (
-                  <>
-                    Filter Applied ({filteredQuestionsData?.length})
-                    <button onClick={handleClearFilter}>
-                      <MdFilterListOff /> Clear Filter
-                    </button>
-                  </>
-                )}
+              )}
             </div>
-            <div className="filter-by-ans">
-              <p>Ans:</p>
-              <button
-                className={`${
-                  questionFilter.answer && questionFilter.answer ? "active" : ""
-                }`}
-                onClick={() => handleFilterByAns(true)}
-              >
-                <RxCheckCircled /> Correct ({SummarizedNumbers.correct})
-              </button>
-              <button
-                className={`${
-                  questionFilter.answer != null && !questionFilter.answer
-                    ? "active"
-                    : ""
-                }`}
-                onClick={() => handleFilterByAns(false)}
-              >
-                <RxCrossCircled /> Wrong ({SummarizedNumbers.incorrect})
-              </button>
-              <button
-                className={`no-banner ${
-                  /*questionFilter.answer === null ? "active" : ""*/ ""
-                }`}
-                onClick={() => handleFilterByAns(null)}
-              >
-                <RxMinusCircled />
-              </button>
+            <div className="bottom-filters">
+              <div className="applied-filter">
+                {filteredQuestionsData?.length > 0 &&
+                  (questionFilter.keyword ||
+                    questionFilter.answer != null ||
+                    questionFilter.unit) && (
+                    <>
+                      Filter Applied ({filteredQuestionsData?.length})
+                      <button onClick={handleClearFilter}>
+                        <MdFilterListOff /> Clear Filter
+                      </button>
+                    </>
+                  )}
+              </div>
+              <div className="filter-by-ans">
+                <p>Ans:</p>
+                <button
+                  className={`${
+                    questionFilter.answer && questionFilter.answer
+                      ? "active"
+                      : ""
+                  }`}
+                  onClick={() => handleFilterByAns(true)}
+                >
+                  <RxCheckCircled /> Correct ({SummarizedNumbers.correct})
+                </button>
+                <button
+                  className={`${
+                    questionFilter.answer != null && !questionFilter.answer
+                      ? "active"
+                      : ""
+                  }`}
+                  onClick={() => handleFilterByAns(false)}
+                >
+                  <RxCrossCircled /> Wrong ({SummarizedNumbers.incorrect})
+                </button>
+                <button
+                  className={`no-banner ${
+                    /*questionFilter.answer === null ? "active" : ""*/ ""
+                  }`}
+                  onClick={() => handleFilterByAns(null)}
+                >
+                  <RxMinusCircled />
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </PageHolder>
   );
 }
