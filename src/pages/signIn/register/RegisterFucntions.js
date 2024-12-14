@@ -2,8 +2,9 @@
 import { functions, db, auth } from "@/firebase";
 import { httpsCallable } from "firebase/functions";
 
-import { doc, getDoc,setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const callRegisterFunction = async (data) => {
   try {
@@ -43,10 +44,21 @@ const handleGoogleLogin = async () => {
       photoURL: user.photoURL,
       lastLogin: new Date(),
     });
-    window.location.replace("/dashboard"); // Redirect to a protected page after successful login
+    const userSenInfoDoc = await getDoc(
+      doc(db, "users", user.uid, "user-sensitive-info", user.uid)
+    );
+    if (userSenInfoDoc.exists()) {
+      window.location.replace("/dashboard"); // Redirect to a protected page after successful login
+    } else {
+      window.location.replace("/log-in"); // Redirect to a page to collect more data
+    }
   } catch (error) {
     console.error("Error during Google login", error);
   }
 };
 
-export { callRegisterFunction, checkUserSensitiveInfoExists, handleGoogleLogin };
+export {
+  callRegisterFunction,
+  checkUserSensitiveInfoExists,
+  handleGoogleLogin,
+};

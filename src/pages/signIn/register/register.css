@@ -1,0 +1,85 @@
+.register-child {
+  @apply max-w-4xl h-svh flex flex-col p-0 sm:p-2 sm:pt-0 gap-1 duration-300;
+}
+.register-child .top{
+  @apply flex items-center gap-1 relative p-2;
+}
+.register-child .top .profile-and-logo{
+  @apply flex -space-x-3 justify-start;
+}
+.register-child .top .profile-and-logo img{
+  @apply min-w-7 w-7 h-7 rounded-full bg-white p-[2px] shadow z-10;
+}
+.register-child .top .title{
+  @apply flex flex-col -ml-1 items-start text-lg px-1 z-10 bg-white rounded-md bg-opacity-70 backdrop-blur-lg overflow-hidden;
+}
+.register-child .top .title .section-title{
+  @apply overflow-hidden w-full text-nowrap text-ellipsis;
+}
+.register-child .top .title .email {
+  @apply text-xs bg-slate-700 text-white max-w-full w-fit px-2 rounded-full overflow-hidden text-ellipsis text-nowrap;
+}
+.register-child .top .title .section-id{
+  @apply w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center font-bold;
+}
+.register-child .top .img-f-o{
+    @apply absolute z-0 -right-0 -top-2 w-64 sm:w-80 duration-300 select-none;
+}
+.back-btn {
+    @apply bg-slate-100 bg-opacity-50 z-20 backdrop-blur-sm transition-all visible w-8 h-8 rounded-lg flex items-center justify-center duration-300 cursor-pointer;
+}
+.back-btn svg {
+    @apply w-4 h-4 duration-300;
+}
+.back-btn:hover {
+    @apply bg-slate-200;
+}
+.back-btn:hover svg {
+  transform: translateX(-2px);
+}
+
+.register-child .bottom{
+  @apply h-full bg-slate-50 bg-opacity-70 backdrop-blur shadow-md rounded-xl z-10 p-1 sm:pr-2 overflow-hidden;
+}
+.register-child .bottom .scroll-holder{
+  @apply h-full overflow-auto p-5 py-10 flex flex-col items-center duration-300;
+}
+.register-child .bottom .scroll-holder::-webkit-scrollbar-track{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.register-child .bottom form{
+  @apply max-w-xl;
+}
+.register-child .bottom form .form-holder{
+  @apply space-y-12;
+}
+.register-child .bottom form .form-sec-holder{
+  @apply border-b border-gray-900/10 pb-12;
+}
+.register-child .bottom form .form-sec-holder h2{
+  @apply text-base font-semibold leading-7 text-gray-900;
+}
+.register-child .bottom form .form-sec-holder p{
+  @apply mt-1 text-sm leading-6 text-gray-600;
+}
+.register-child .bottom form .form-sec-holder .input-holder{
+  @apply mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 sm:col-span-4;
+}
+.register-child .bottom form .form-sec-holder .input-holder .label-1{
+  @apply block text-sm font-medium leading-6 text-gray-900;
+}
+.register-child .bottom form .form-sec-holder .input-holder .inp-1{
+  @apply block w-full rounded-md border-0 py-[7px] px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6;
+}
+.register-child .bottom form .error-list ul{
+  @apply flex flex-wrap gap-2 w-full;
+}
+.register-child .bottom form .error-msg{
+  @apply text-xs;
+}
+.register-child .bottom form .error-msg::before {
+  content: url("data:image/svg+xml,%3Csvg stroke='gray' fill='gray' stroke-width='0' viewBox='0 0 512 512' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke-miterlimit='10' stroke-width='32' d='M248 64C146.39 64 64 146.39 64 248s82.39 184 184 184 184-82.39 184-184S349.61 64 248 64z'%3E%3C/path%3E%3Cpath fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='32' d='M220 220h32v116'%3E%3C/path%3E%3Cpath fill='none' stroke-linecap='round' stroke-miterlimit='10' stroke-width='32' d='M208 340h88'%3E%3C/path%3E%3Cpath d='M248 130a26 26 0 1 0 26 26 26 26 0 0 0-26-26z'%3E%3C/path%3E%3C/svg%3E");
+  display: inline-block;
+  @apply w-4 h-4 top-[2px] relative text-gray-600 mr-[2px];
+}
