@@ -1,60 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Shadows+Into+Light&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 
-.page-holder{
-    @apply h-svh
-}
-
-.dashboard-page{
-    @apply flex flex-col h-full;
-}
-
-.top-holder .top-menu{
-    @apply  p-1 flex justify-between px-4 items-center max-w-5xl w-full relative;
-}
-.top-holder .top-menu .logo-holder{
-    @apply  bg-slate-100 flex items-center text-xl gap-1 p-1 rounded-xl;
-    font-family: "Concert One", sans-serif;
-}
-.top-holder .top-menu .logo-holder .logo-icon-holder{
-    @apply  min-w-7 h-7 w-7 p-[2px] bg-white rounded-full;
-}
-.top-holder .top-menu .logo-holder h1{
-    @apply  flex items-end gap-2;
-}
-.top-holder .top-menu .profile-info-holder{
-    @apply flex items-center gap-2 z-10 bg-white bg-opacity-60 backdrop-blur-md rounded-md p-[1px] px-[3px] max-w-40;
-}
-.top-holder .top-menu .profile-holder img{
-    @apply w-10 min-w-10 h-10 rounded-full overflow-hidden p-[2px] *:rounded-full shadow-md object-cover;
-}
-.top-holder .top-menu .welcome-txt{
-    @apply -space-y-[0px] flex flex-col max-w-full overflow-hidden bg-white;
-}
-.top-holder .top-menu .profile-info-holder h1{
-    @apply text-base max-w-full overflow-hidden text-ellipsis text-nowrap;
-}
-.top-holder .top-menu .profile-info-holder p{
-    @apply bg-blue-100 px-1 rounded-full w-fit text-xs max-w-full text-ellipsis text-nowrap overflow-hidden;
-    /* font-family: "Gloria Hallelujah", cursive; */
-}
-.top-holder .top-menu .left span{
-    @apply bg-white text-xs shadow-md flex gap-1 rounded-full overflow-hidden max-w-5 p-1 duration-300;
-    font-family: "Gloria Hallelujah", cursive;
-}
-.top-holder .top-menu .left span svg{
-    @apply min-w-2 w-2 h-2
-}
-.top-holder .flo-obj-img{
-    @apply w-80 absolute right-2 top-0 z-0;
-}
-.bottom-holder{
-    @apply h-full w-full flex pb-2 px-2 min-h-20 flex-col duration-300 self-center;
-}
-.bottom-holder .content{
-    @apply max-w-5xl bg-white bg-opacity-50 backdrop-blur-md flex-grow w-full h-full overflow-auto rounded-xl flex-col flex self-center p-5;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-}
 .ai-s-child{
     @apply p-3 px-4 flex flex-col w-full self-center bg-slate-50 mt-1 rounded-md;
 }
