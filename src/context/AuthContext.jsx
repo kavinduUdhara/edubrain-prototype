@@ -21,14 +21,19 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         // Fetch the user role and additional data from Firestore
-        //const userDoc = await getDoc(doc(db, 'users', user.uid));
-        //if (userDoc.exists()) {
-        //  const userData = userDoc.data();
-        //  user.role = userData.role; // Add the role to the user object
-        //  user.firstName = userData.firstName;
-        //  user.lastName = userData.lastName;
-        //  user.photoURL = userData.photoURL;
-        //}
+        // const userDoc = await getDoc(doc(db, 'users', user.uid));
+        // if (userDoc.exists()) {
+        //   const userData = userDoc.data();
+        //   user.firstName = userData.firstName;
+        //   user.lastName = userData.lastName;
+        // }
+        // const userSenInfoDoc = await getDoc(doc(db, 'users', user.uid, 'user-sensitive-info', user.uid));
+        // if (userSenInfoDoc.exists()) {
+        //   const userData = userDoc.data();
+        //   user.moreDataExist = true;
+        // } else {
+        //   user.mreDataExist = false;
+        // }
         setCurrentUser(user); // Set the currentUser with the additional data
       } else {
         setCurrentUser(null);

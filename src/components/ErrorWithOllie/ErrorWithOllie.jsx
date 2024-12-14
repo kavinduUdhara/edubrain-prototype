@@ -2,6 +2,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import "./ErrorWithOllie.css";
 import { MdFilterListOff } from "react-icons/md";
 import OllieImg from "../../assets/img/objects/octopus-on-the-coutch.png";
+import { useNavigate } from "react-router-dom";
 
 export default function ErrorWithOllie({
   title,
@@ -15,8 +16,10 @@ export default function ErrorWithOllie({
   hideOllie,
 }) {
 
+  const navigate = useNavigate();
+
   const redirect = (link) => {
-    window.location.href(link);
+    navigate(link);
   };
 
   return (
@@ -41,7 +44,7 @@ export default function ErrorWithOllie({
         </button>
       )}
       {redirectToHome && (
-        <button onClick={() => redirect("/")}>
+        <button onClick={() => navigate("/")}>
           <img className="def-logo-img w-7 duration-300" src="/main-logo.svg" />
           Back to home
         </button>

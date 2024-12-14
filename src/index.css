@@ -17,6 +17,19 @@
     @apply bg-white p-5 rounded-xl shadow-xl ;
 }
 
+.def-back-btn {
+  @apply bg-slate-100 bg-opacity-50 z-20 backdrop-blur-sm transition-all visible w-8 h-8 rounded-lg flex items-center justify-center duration-300 cursor-pointer;
+}
+.def-back-btn svg {
+  @apply w-4 h-4 duration-300;
+}
+.def-back-btn:hover {
+  @apply bg-slate-200;
+}
+.def-back-btn:hover svg {
+transform: translateX(-2px);
+}
+
 @layer base {
   :root {
 
