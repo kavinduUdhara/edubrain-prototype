@@ -36,6 +36,9 @@ export default defineConfig({
         display: "standalone",
         scope: "/",
       },
+      workbox: {
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024, // 4 MB
+      },
     }),
   ],
   resolve: {
