@@ -1,8 +1,7 @@
-# React + Vite
+Copyright 2024 Kavindu Udhara
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+All rights reserved.
 
-Currently, two official plugins are available:
+This repository and its contents are protected by copyright law. Unauthorized use, modification, or distribution of this content is prohibited without explicit written permission from the copyright holder.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For inquiries, contact: wmkavinduudhara@gmail.com
