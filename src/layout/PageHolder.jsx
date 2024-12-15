@@ -1,9 +1,11 @@
 import "./pageHolder.css";
 import { ImLab } from "react-icons/im";
 import { auth } from "@/firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function PageHolder({ children, maxW = 5 }) {
   const user = auth.currentUser;
+  const navigate = useNavigate();
 
   return (
     <div className="page-holder">
@@ -13,7 +15,7 @@ export default function PageHolder({ children, maxW = 5 }) {
             <div className="left">
               <button
                 onClick={() => {
-                  navigate("/");
+                  navigate("/dashboard");
                 }}
                 className="logo-holder"
               >
