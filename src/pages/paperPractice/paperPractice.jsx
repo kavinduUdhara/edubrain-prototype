@@ -890,16 +890,16 @@ export default function PaperPractice() {
           <div className="w-full max-w-7xl pp-pra">
             <div className="dashboard">
               <div className="left">
-                <button className="back-btn">
+                <button className="back-btn" onClick={() => {navigate("/dashboard")}}>
                   <IoMdArrowRoundBack />
                 </button>
-                <div className="logo">
+                <button className="logo" onClick={() => {navigate("/dashboard")}}>
                   <img
                     className="def-logo-img w-8 duration-300"
                     src="/main-logo.svg"
                   />
                   <p className="def-logo-txt">EDUBRAIN</p>
-                </div>
+                </button>
                 <div className="pp-title">
                   <h1>{paper && paper.title}</h1>
                   <p>{paper && paper.sub_id}</p>
