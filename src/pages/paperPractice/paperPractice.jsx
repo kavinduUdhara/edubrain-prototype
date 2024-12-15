@@ -422,7 +422,9 @@ export default function PaperPractice() {
           },
         }));
         console.log(question);
-        let html_q_title = DOMPurify.sanitize(processQuestionToHtml(String(question.q_title)));
+        let html_q_title = DOMPurify.sanitize(
+          processQuestionToHtml(String(question.q_title))
+        );
         let html_ans1 = DOMPurify.sanitize(
           processQuestionToHtml(String(question.ans1))
         );
@@ -742,6 +744,13 @@ export default function PaperPractice() {
           const userAnswers = userAns;
           const result = await submitAnswers({ userId, ppId, userAnswers });
           console.log("Function result:", result.data);
+          const { success, message, attID } = result.data;
+
+          if (success, attID) {
+            toast.success(message || "Submission successful!");
+            // Redirect to the specific page with attID
+            navigate(`/paper-attempt/${attID}`);
+          }
         } catch (error) {
           setLoadingQuestions((prevState) => ({
             ...prevState,
@@ -890,10 +899,20 @@ export default function PaperPractice() {
           <div className="w-full max-w-7xl pp-pra">
             <div className="dashboard">
               <div className="left">
-                <button className="back-btn" onClick={() => {navigate("/dashboard")}}>
+                <button
+                  className="back-btn"
+                  onClick={() => {
+                    navigate("/dashboard");
+                  }}
+                >
                   <IoMdArrowRoundBack />
                 </button>
-                <button className="logo" onClick={() => {navigate("/dashboard")}}>
+                <button
+                  className="logo"
+                  onClick={() => {
+                    navigate("/dashboard");
+                  }}
+                >
                   <img
                     className="def-logo-img w-8 duration-300"
                     src="/main-logo.svg"
@@ -1183,7 +1202,9 @@ export default function PaperPractice() {
                               </span>
                               <label className="ans-lab" for="1">
                                 <div>
-                                  {parseHtml(currentQuestionContent?.ans1 || "")}
+                                  {parseHtml(
+                                    currentQuestionContent?.ans1 || ""
+                                  )}
                                 </div>
                               </label>
                             </label>
@@ -1199,7 +1220,9 @@ export default function PaperPractice() {
                               </label>
                               <label className="ans-lab" for="2">
                                 <div>
-                                  {parseHtml(currentQuestionContent?.ans2 || "")}
+                                  {parseHtml(
+                                    currentQuestionContent?.ans2 || ""
+                                  )}
                                 </div>
                               </label>
                             </label>
@@ -1215,7 +1238,9 @@ export default function PaperPractice() {
                               </label>
                               <label className="ans-lab" for="3">
                                 <div>
-                                  {parseHtml(currentQuestionContent?.ans3 || "")}
+                                  {parseHtml(
+                                    currentQuestionContent?.ans3 || ""
+                                  )}
                                 </div>
                               </label>
                             </label>
@@ -1231,7 +1256,9 @@ export default function PaperPractice() {
                               </label>
                               <label className="ans-lab" for="4">
                                 <div>
-                                  {parseHtml(currentQuestionContent?.ans4 || "")}
+                                  {parseHtml(
+                                    currentQuestionContent?.ans4 || ""
+                                  )}
                                 </div>
                               </label>
                             </label>
@@ -1247,7 +1274,9 @@ export default function PaperPractice() {
                               </label>
                               <label className="ans-lab" for="5">
                                 <div>
-                                  {parseHtml(currentQuestionContent?.ans5 || "")}
+                                  {parseHtml(
+                                    currentQuestionContent?.ans5 || ""
+                                  )}
                                 </div>
                               </label>
                             </label>
