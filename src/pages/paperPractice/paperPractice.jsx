@@ -739,17 +739,33 @@ export default function PaperPractice() {
             functions,
             "handelSubmitPastPaperPra"
           );
+          const getAIsuggestions = httpsCallable(
+            functions,
+            "predictAISuggestionsAndStore"
+          );
           const userId = auth.currentUser.uid; // change `userID` to `userId`
+          const uid = auth.currentUser.uid; // change `uid` to `userId`
           const ppId = paper.id; // change `pp_id` to `ppId`
           const userAnswers = userAns;
-          const result = await submitAnswers({ userId, ppId, userAnswers });
-          console.log("Function result:", result.data);
-          const { success, message, attID } = result.data;
+          try {
+            // Run both functions in parallel
+            const [result, aiSuggestions] = await Promise.all([
+              submitAnswers({ userId, ppId, userAnswers }),
+              getAIsuggestions({ uid }),
+            ]);
 
-          if (success, attID) {
-            toast.success(message || "Submission successful!");
-            // Redirect to the specific page with attID
-            navigate(`/paper-attempt/${attID}`);
+            console.log("Submit Answers Result:", result.data);
+            console.log("AI Suggestions Result:", aiSuggestions.data);
+            const { success, message, attID } = result.data;
+
+            if ((success, attID)) {
+              toast.success(message || "Submission successful!");
+              // Redirect to the specific page with attID
+              navigate(`/paper-attempt/${attID}`);
+            }
+          } catch (error) {
+            // Handle any error from either function
+            console.error("Error running functions:", error);
           }
         } catch (error) {
           setLoadingQuestions((prevState) => ({
