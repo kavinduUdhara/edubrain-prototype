@@ -49,7 +49,7 @@
     @apply w-80 absolute right-2 top-0 z-0;
 }
 .bottom-holder{
-    @apply h-full w-full flex p-0 sm:pb-2 sm:px-2 min-h-20 flex-col duration-300 self-center duration-300;
+    @apply h-full w-full flex p-0 sm:pb-2 sm:px-2 min-h-20 flex-col duration-300 self-center ;
 }
 .bottom-holder .content{
     @apply  bg-white bg-opacity-50 backdrop-blur-md flex-grow w-full h-full overflow-auto rounded-xl flex-col flex self-center;

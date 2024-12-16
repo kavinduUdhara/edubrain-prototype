@@ -1,0 +1,24 @@
+.ai-sug-holder{
+   @apply bg-slate-50 mx-1 mt-5 p-3 rounded-lg shadow space-y-3
+}
+.ai-sug-holder .title{
+    @apply inline-flex items-center gap-2 text-lg
+}
+.ai-sug-holder .unit-list{
+    @apply text-base flex gap-3 flex-wrap px-2 ;
+}
+.ai-sug-holder .unit-list .unit-item{ 
+    @apply bg-slate-50 p-[2px] px-3 rounded-full text-slate-700 border-2 data-[active=true]:text-white data-[active=true]:border-slate-700 data-[active=true]:bg-slate-700 hover:bg-white hover:shadow-sm duration-300;
+}
+.ai-sug-holder .tag-list{
+    @apply bg-white rounded-lg m-1 p-2 flex flex-wrap gap-3;
+}
+.ai-sug-holder .tag-list .tag{
+    @apply bg-slate-50 flex gap-1 p-1 px-2 rounded-md;
+}
+.ai-sug-holder .tag-list .tag .tag-id{
+    @apply pr-2 border-r-2;
+}
+.ai-sug-holder .tag-list .view-more{
+    @apply text-slate-700;
+}

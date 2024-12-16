@@ -346,15 +346,20 @@ export function PaperListPopUp({ children }) {
                         {papersMoreInfoLoaded[paper.key] &&
                           (!papersMoreInfoLoaded[paper.key].count ||
                             papersMoreInfoLoaded == 0) && (
-                            <div className="no-history">
-                              <div className="profile">
-                                <img src="/img/objects/oli-profile.png" />
-                                <div>
+                            <div className="no-history w-full px-4">
+                              <div className="profile w-full">
+                                <div className="flex flex-col w-full gap-1">
                                   <div className="message">
                                     You haven't done this paper before.
                                   </div>
-                                  <div className="action-btn">
-                                    <button>Start Now</button>
+                                  <div className="action-btn self-end">
+                                    <button
+                                      onClick={() => {
+                                        window.location.href = `/paper-practice/${paper.pp_id}`;
+                                      }}
+                                    >
+                                      Start Now
+                                    </button>
                                   </div>
                                 </div>
                               </div>

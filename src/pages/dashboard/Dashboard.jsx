@@ -17,10 +17,25 @@ import UnitsFlowChart from "@/components/UnitsOverviewTree";
 import { useNavigate } from "react-router-dom";
 import { PaperListPopUp } from "./PaperListPopUp";
 import PageHolder from "@/layout/PageHolder";
+import AISuggestions from "./AISuggesions";
+import { functions } from "@/firebase";
+import { httpsCallable } from "firebase/functions";
 
 export default function Dashboard() {
   const user = auth.currentUser;
   const navigate = useNavigate();
+
+    const handleClick = async (uid) => {
+      try {
+        const predictAndStore = httpsCallable(functions, "predictAISuggestionsAndStore");
+        const result = await predictAndStore({ uid });
+        console.log("Function Result:", result.data);
+        alert("AI suggestions saved successfully!");
+      } catch (error) {
+        console.error("Error calling function:", error);
+        alert("An error occurred. Check console for details.");
+      }
+    };
 
   return (
     <PageHolder maxW={5} >
@@ -39,14 +54,16 @@ export default function Dashboard() {
               <div className="sug-list"></div>
             </div> */}
         <div className="overview-sec fetures-sec">
-          <h1 className="title">
+          <h1 className="title mb-3">
             <FaUncharted /> Numbers to wrap your head around
           </h1>
           <div className="flex flex-wrap gap-3">
             <UnitWeightChart />
             <UnitAvgMarksChart />
           </div>
+          <AISuggestions/>
         </div>
+        <button onClick={() => {handleClick(auth.currentUser.uid)}}>update suggestions</button>
         <div className="fetures-sec">
           <h1 className="title">
             <GiPartyPopper /> Fetrues on{" "}

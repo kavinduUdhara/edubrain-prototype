@@ -26,6 +26,8 @@ import {
 import { useEffect, useState } from "react";
 import { db, auth } from "@/firebase";
 import { getDoc, doc } from "firebase/firestore";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { FiInfo } from "react-icons/fi";
 
 const chartConfig = {
   performance: {
@@ -86,6 +88,9 @@ export function UnitAvgMarksChart() {
         setChartData(enrichedData); // Update chart data with enriched details
         setAttemptCount(attemptCount); // Update attempt count
         setLoading(false); // Loading is done
+      } else {
+        console.log("No data found");
+        setLoading(false); // Loading is done
       }
     };
     fetchData();
@@ -98,7 +103,17 @@ export function UnitAvgMarksChart() {
         <CardDescription>in each unit</CardDescription>
       </CardHeader>
       <CardContent>
-        {loading && <div>Loading...</div>}
+        {loading && (
+          <div className="def-loading-box bg-white h-32">
+            <div className="absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 bg-white p-1 px-2 rounded-full shadow-md">
+              <AiOutlineLoading3Quarters className="def-loading-svg" />
+              Loading...
+            </div>
+          </div>
+        )}
+        {chartData.length == 0 && !loading && (
+          <div className="bg-white py-9 px-3 rounded-md shadow text-center text-slate-700"><FiInfo className="inline-block mr-2 -mt-[3px]"/>Do atleast 1 paper to unlock analytics data</div>
+        )}
         {chartData.length != 0 && !loading && (
           <ChartContainer config={chartConfig}>
             <BarChart
@@ -153,7 +168,7 @@ export function UnitAvgMarksChart() {
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none items-center">
           Overall performance is{" "}
-          <span className="text-lg">{avg_grades ? avg_grades : "N/A"}%</span>{" "}
+          <span className="text-lg">{avg_grades ? `${avg_grades}%` : "¬_¬"}</span>{" "}
         </div>
         <div className="leading-none text-muted-foreground">
           Data from your all {attempt_count && `(${attempt_count})`} attempts
