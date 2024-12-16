@@ -14,7 +14,7 @@
     @apply p-[2px] px-3 rounded-full text-slate-700 border-2 data-[active=true]:text-white data-[active=true]:border-slate-700 data-[active=true]:bg-slate-700 hover:bg-white hover:shadow-sm duration-300;
 }
 .ai-sug-holder .tag-list{
-    @apply bg-white rounded-lg m-1 p-2 flex flex-wrap gap-3;
+    @apply bg-white rounded-lg m-1 p-2 flex flex-wrap gap-3 max-h-36 overflow-auto;
 }
 .ai-sug-holder .tag-list .tag{
     @apply bg-slate-50 flex gap-1 p-1 px-2 rounded-md;
