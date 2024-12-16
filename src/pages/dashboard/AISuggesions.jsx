@@ -9,6 +9,11 @@ export default function AISuggestions() {
         <b>AI thinks</b> you should focusing on these topics
       </h1>
       <div className="unit-list">
+        <button className="loading-button def-loading-box rounded-full w-14 h-7 bg-white shadow-sm border-2"></button>
+        <button className="loading-button def-loading-box rounded-full w-10 h-7 bg-white shadow-sm border-2"></button>
+        <button className="loading-button def-loading-box rounded-full w-16 h-7 bg-white shadow-sm border-2"></button>
+        </div>
+      <div className="unit-list">
         <button className="unit-item">OS</button>
         <button className="unit-item" data-active={true}>DBMS</button>
         <button className="unit-item">Net & Com</button>
