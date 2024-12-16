@@ -283,7 +283,7 @@
     @apply sticky bottom-0 z-20 flex items-center py-2 justify-normal sm:justify-between pl-1 text-sm;
   }
   .questions-holder .bottom-filters .filter-by-ans{
-    @apply gap-1 sm:max-w-[17rem] sm:max-h-72 opacity-0 sm:opacity-100 max-w-0 max-h-0 w-full overflow-hidden duration-300;
+    @apply gap-1 sm:max-w-[18rem] sm:w-[18rem] sm:max-h-72 opacity-0 sm:opacity-100 max-w-0 max-h-0 w-full overflow-hidden duration-300;
   }
   .questions-holder .applied-filter {
     @apply text-sm inline-flex gap-2 flex-wrap items-center px-2 bg-white p-1 rounded-full bg-opacity-70 backdrop-blur-sm;

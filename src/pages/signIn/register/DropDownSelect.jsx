@@ -17,7 +17,6 @@ export function PronounSelector({ onChange }) {
       <SelectContent position="popper">
         <SelectItem value="m">He/Him</SelectItem>
         <SelectItem value="f">She/Her</SelectItem>
-        <SelectItem value="t">They/Them</SelectItem>
         <SelectItem value="n">Prefer not to say</SelectItem>
       </SelectContent>
     </Select>

@@ -134,10 +134,9 @@ export default function UnitWeightChart({}) {
 
   return (
     <Card className="flex flex-col m-1 mt-0 shadow-sm border-none max-w-80 w-full bg-slate-50">
-      <CardHeader className="items-center">
-        <CardDescription>
-          Weight for each unit
-        </CardDescription>
+      <CardHeader>
+        <CardTitle>Weight in each unit</CardTitle>
+        <CardDescription>not every unit is important as you think it is</CardDescription>
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
