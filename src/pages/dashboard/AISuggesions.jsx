@@ -28,7 +28,7 @@ export default function AISuggestions() {
         const subUnitData = subUnitDocSnap.exists
           ? subUnitDocSnap.data().data
           : {};
-        
+
         const unitDocRef = doc(db, "brief_det", "units");
 
         if (docSnap.exists()) {
@@ -37,6 +37,7 @@ export default function AISuggestions() {
             ...item,
             sub_unit_title:
               subUnitData[item.sub_unit_id]?.sub_unit_title || "Unknown title",
+            unit_id: item.sub_unit_id.split(".")[0],
           }));
           setSuggestions(enrichedData || []); // Assuming data has a 'suggestions' field
           console.log(enrichedData);
@@ -54,7 +55,9 @@ export default function AISuggestions() {
   return (
     <div className="ai-sug-holder">
       <div className="title">
-        <GeminiSVG />
+        <div className="min-w-5">
+          <GeminiSVG />
+        </div>
         <h1>
           <b>AI thinks</b> you should focusing on these topics
         </h1>
@@ -94,7 +97,7 @@ export default function AISuggestions() {
                 <div className="tag-name">{suggestion.sub_unit_title}</div>
               </div>
             ))}
-            <button className="view-more">View all 13</button>
+            {/* {<button className="view-more">View all 13</button>} */}
           </div>
         </>
       )}
@@ -106,8 +109,8 @@ export default function AISuggestions() {
             <br />
             <span className="text-sm">
               If you've already completed one past paper and are still seeing
-              this, your suggestions are being created. Please try
-              again after a few minutes.
+              this, your suggestions are being created. Please try again after a
+              few minutes.
             </span>
           </p>
         </div>

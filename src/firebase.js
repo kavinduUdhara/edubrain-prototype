@@ -3,19 +3,26 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
+import {initializeAppCheck, ReCaptchaV3Provider} from "firebase/app-check";
 
 // Your Firebase configuration object
 const firebaseConfig = {
-    apiKey: "AIzaSyAB-00NW0a7Tb_nFBMdpQtmTlJC1k7bnUg",
-    authDomain: "edubrain-app.firebaseapp.com",
-    projectId: "edubrain-app",
-    storageBucket: "edubrain-app.appspot.com",
-    messagingSenderId: "845049984749",
-    appId: "1:845049984749:web:2ab545b3faa2b1554d7ee4",
-    measurementId: "G-17F3CDREEY"
-  };
+  apiKey: "AIzaSyB_NrAkejLwEIlDRnMDmemA2yy6Uf1Xr1g",
+  authDomain: "edubrain-app.firebaseapp.com",
+  projectId: "edubrain-app",
+  storageBucket: "edubrain-app.appspot.com",
+  messagingSenderId: "845049984749",
+  appId: "1:845049984749:web:b5bdbb4f99c008554d7ee4",
+  measurementId: "G-TEXCX14NRT"
+};
 
 const app = initializeApp(firebaseConfig);
+
+const appCheck = initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider('6Lenq50qAAAAAOIZfFFnphZifq8pqfMdP-mTkPHw'),
+  isTokenAutoRefreshEnabled: true
+});
+
 const db = getFirestore(app);
 const auth = getAuth(app);
 const functions = getFunctions(app);
