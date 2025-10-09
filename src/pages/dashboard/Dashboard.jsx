@@ -63,7 +63,7 @@ export default function Dashboard() {
           </div>
           <AISuggestions/>
         </div>
-        <button onClick={() => {handleClick(auth.currentUser.uid)}}>update suggestions</button>
+        {/* <button onClick={() => {handleClick(auth.currentUser.uid)}}>update suggestions</button> */}
         <div className="fetures-sec">
           <h1 className="title">
             <GiPartyPopper /> Fetrues on{" "}
